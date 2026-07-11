@@ -6,7 +6,7 @@
 
   if (reduced) {
     // Show everything immediately
-    document.querySelectorAll('.about-para, .sidebar-card, .currently-wrap').forEach(el => {
+    document.querySelectorAll('.about-header, .about-para, .sidebar-card, .currently-wrap').forEach(el => {
       el.style.opacity = '1';
       el.style.transform = 'none';
     });

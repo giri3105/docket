@@ -7,8 +7,8 @@
   <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="projects.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="projects.css?v=3" />
 </head>
 <body class="page-body">
 
@@ -28,13 +28,14 @@
 
     <div class="projects-rule"></div>
 
-    <!-- ── Featured: 7DOF Robot ── -->
-    <a href="project-xarm7.html" class="project-featured">
+    <!-- ── 01. Featured: Targeted Striking Manipulation ── -->
+    <a href="project-xarm7.html" class="project-featured project-featured--blue">
 
       <div class="project-featured-body">
         <div>
           <div class="project-featured-meta">
             <span class="project-status project-status--done">completed</span>
+            <span class="project-status--spotlight" style="margin-left: 6px;"><span class="dot dot--sm"></span>spotlight build</span>
             <span class="project-num">01</span>
           </div>
           <h2 class="project-featured-title">Targeted Striking Manipulation</h2>
@@ -63,13 +64,81 @@
 
     </a>
 
-    <!-- ── Projects grid ── -->
+    <!-- ── 02. Featured: Articulated Reverse Parking ── -->
+    <a href="project-reverse-parking.html" class="project-featured project-featured--amber">
+
+      <div class="project-featured-body">
+        <div>
+          <div class="project-featured-meta">
+            <span class="project-status project-status--done">completed</span>
+            <span class="project-num">02</span>
+          </div>
+          <h2 class="project-featured-title">Articulated Reverse Parking with NMPC</h2>
+          <p class="project-featured-desc">
+            Augmenting Frenet-frame Model Predictive Control with trailer kinematics, move blocking, and soft jackknife barriers to autonomously reverse an articulated tractor-trolley system using CasADi and Acados.
+          </p>
+          <div class="project-tags">
+            <span class="tag tag--amber">Python</span>
+            <span class="tag tag--purple">CasADi / Acados</span>
+            <span class="tag tag--blue">NMPC</span>
+            <span class="tag tag--green">System Integration</span>
+          </div>
+        </div>
+        <span class="project-cta">View project →</span>
+      </div>
+      <div class="project-featured-thumb">
+        <img src="img/Reverse_Trolley.jpg" alt="Articulated Reverse Parking simulation" loading="lazy" />
+        <div class="thumb-play">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="thumb-label">watch simulation</span>
+        </div>
+      </div>
+
+    </a>
+
+    <!-- ── 03. Featured: Traversability Estimation ── -->
+    <a href="project-traversability.html" class="project-featured project-featured--green">
+
+      <div class="project-featured-body">
+        <div>
+          <div class="project-featured-meta">
+            <span class="project-status project-status--wip">ongoing</span>
+            <span class="project-num">03</span>
+          </div>
+          <h2 class="project-featured-title">Traversability Estimation with Go-Net</h2>
+          <p class="project-featured-desc">
+            Classifying navigable floor corridors for warehouse robots using Go-Net. Overcoming severe fisheye-to-pinhole camera modality gaps via custom data engineering and ExAug-Nav experience augmentation.
+          </p>
+          <div class="project-tags">
+            <span class="tag tag--amber">Python</span>
+            <span class="tag tag--purple">PyTorch</span>
+            <span class="tag tag--green">Go-Net</span>
+            <span class="tag tag--blue">Data Engineering</span>
+          </div>
+        </div>
+        <span class="project-cta">View project →</span>
+      </div>
+      <div class="project-featured-thumb">
+        <img src="img/Travrersability_thumbnail.png" alt="Traversability Estimation corridor classification" loading="lazy" />
+        <div class="thumb-play">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          </div>
+          <span class="thumb-label">explore model</span>
+        </div>
+      </div>
+
+    </a>
+
+    <!-- ── Projects grid (Remaining 2 cards) ── -->
     <div class="projects-grid">
 
       <a href="project-sudoku.html" class="project-card project-card--done">
         <div class="project-card-meta">
           <span class="project-status project-status--done">completed</span>
-          <span class="project-num">02</span>
+          <span class="project-num">04</span>
         </div>
         <h3 class="project-card-title">Sudoku Solver with Real-Image Dataset</h3>
         <p class="project-card-desc">
@@ -91,60 +160,18 @@
       <a href="project-amr.html" class="project-card project-card--wip">
         <div class="project-card-meta">
           <span class="project-status project-status--wip">ongoing</span>
-          <span class="project-num">03</span>
+          <span class="project-num">05</span>
         </div>
-        <h3 class="project-card-title">Trolley-Augmented AMR Tracker</h3>
+        <h3 class="project-card-title">Learning-Based MPC for Trolley-Towing AMR</h3>
         <p class="project-card-desc">
-          Modeling a pose tracker for an AMR towing a trolley — without explicitly modeling the trolley's
-          dynamics. Augmenting the base estimator with a learned residual (GPR / MLP).
+          Designing a learning-based MPC for an AMR towing a trolley — without explicitly modeling the trolley's
+          dynamics or augmenting the state space. Incorporating a learned residual (GPR / MLP) into trajectory planning.
         </p>
         <div class="project-tags" style="margin-bottom: 20px;">
           <span class="tag tag--green">ROS2</span>
           <span class="tag tag--amber">Python</span>
           <span class="tag tag--purple">GPR</span>
-          <span class="tag tag--blue">State Estimation</span>
-        </div>
-        <div class="project-card-footer">
-          <div></div>
-          <span class="project-card-arrow">↗</span>
-        </div>
-      </a>
-
-      <a href="project-reverse-parking.html" class="project-card project-card--done">
-        <div class="project-card-meta">
-          <span class="project-status project-status--done">completed</span>
-          <span class="project-num">04</span>
-        </div>
-        <h3 class="project-card-title">Articulated Reverse Parking with NMPC</h3>
-        <p class="project-card-desc">
-          Augmenting Frenet-frame Model Predictive Control with trailer kinematics, move blocking, and soft jackknife barriers to autonomously reverse an articulated tractor-trolley system using CasADi and Acados.
-        </p>
-        <div class="project-tags" style="margin-bottom: 20px;">
-          <span class="tag tag--amber">Python</span>
-          <span class="tag tag--purple">CasADi / Acados</span>
-          <span class="tag tag--blue">NMPC</span>
-          <span class="tag tag--green">System Integration</span>
-        </div>
-        <div class="project-card-footer">
-          <div></div>
-          <span class="project-card-arrow">↗</span>
-        </div>
-      </a>
-
-      <a href="project-traversability.html" class="project-card project-card--wip">
-        <div class="project-card-meta">
-          <span class="project-status project-status--wip">ongoing</span>
-          <span class="project-num">05</span>
-        </div>
-        <h3 class="project-card-title">Traversability Estimation with Go-Net</h3>
-        <p class="project-card-desc">
-          Classifying navigable floor corridors for warehouse robots using Go-Net. Overcoming severe fisheye-to-pinhole camera modality gaps via custom data engineering and ExAug-Nav experience augmentation.
-        </p>
-        <div class="project-tags" style="margin-bottom: 20px;">
-          <span class="tag tag--amber">Python</span>
-          <span class="tag tag--purple">PyTorch</span>
-          <span class="tag tag--green">Go-Net</span>
-          <span class="tag tag--blue">Data Engineering</span>
+          <span class="tag tag--blue">MPC</span>
         </div>
         <div class="project-card-footer">
           <div></div>
@@ -158,13 +185,14 @@
     <p class="projects-ideas-header">on the backlog</p>
     <div class="ideas-list">
       <div class="idea-row"><span class="idea-dot"></span>Sim-to-real transfer benchmark for contact-rich manipulation</div>
-      <div class="idea-row"><span class="idea-dot"></span>Autonomous inspection drone with onboard semantic mapping</div>
-      <div class="idea-row"><span class="idea-dot"></span>LLM-driven task planner for household robot</div>
+      <div class="idea-row"><span class="idea-dot"></span>3D reconstruction with map run to map better in fleet management platforms</div>
+      <div class="idea-row"><span class="idea-dot"></span>Controller for Striker</div>
     </div>
 
   </div>
 
   <script src="projects.js"></script>
+  <script src="vnav.js"></script>
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->

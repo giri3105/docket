@@ -64,8 +64,14 @@
 
     /* Once a real file resolves, the <img> or <video> takes over and the
        dashed placeholder chrome collapses into a plain caption. */
+    /* Keep lazy media in layout so it can load; display:none prevents its
+       load event from ever firing, which leaves the placeholder permanent. */
     .image-placeholder img.ph-photo,
-    .image-placeholder video.ph-photo { display: none; width: 100%; }
+    .image-placeholder video.ph-photo {
+      display: block;
+      width: 100%;
+      visibility: hidden;
+    }
     .image-placeholder.has-image {
       display: flex;
       flex-direction: column;
@@ -80,7 +86,7 @@
       min-height: 0;
     }
     .image-placeholder.has-image img.ph-photo,
-    .image-placeholder.has-image video.ph-photo { display: block; }
+    .image-placeholder.has-image video.ph-photo { visibility: visible; }
     .image-placeholder.has-image .placeholder-icon,
     .image-placeholder.has-image .placeholder-desc { display: none; }
     .image-placeholder.has-image .placeholder-title {
@@ -622,6 +628,7 @@ v₀ = -46.242188 - 2.423770·d + 0.478084·θ - 0.003540·d² + 0.015425·d·θ
   </div>
 
   <script src="projects.js"></script>
+  <script src="vnav.js"></script>
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->

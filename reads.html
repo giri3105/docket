@@ -7,8 +7,8 @@
   <title>Good reads · Giri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="reads.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="reads.css?v=2" />
 </head>
 <body class="page-body">
 
@@ -28,9 +28,82 @@
       </p>
     </header>
 
-    <!-- ── Sim-to-real manipulation ── -->
+    <!-- ── 1. Control ── -->
     <section class="reads-group">
       <div class="reads-topic">
+        <span class="topic-badge badge--copper">01 / CONTROL</span>
+        <h2>Control</h2>
+        <p>The reference text for optimization-based control, from theory to solver.</p>
+      </div>
+      <div class="reads-list">
+        <a class="read-row" href="https://sites.engineering.ucsb.edu/~jbraw/mpc/" target="_blank" rel="noopener">
+          <span class="read-main">
+            <span class="read-title">Model Predictive Control: Theory, Computation, and Design (2nd&nbsp;Ed.)</span>
+            <span class="read-authors">Rawlings, Mayne, Diehl · Nob Hill Publishing</span>
+          </span>
+          <span class="read-ref read-ref--book">book</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 2. Optimization ── -->
+    <section class="reads-group">
+      <div class="reads-topic">
+        <span class="topic-badge badge--amber">02 / OPTIMIZATION</span>
+        <h2>Optimization</h2>
+        <p>Gradient-free search that still scales: the evolution-strategies family, CMA-ES included.</p>
+      </div>
+      <div class="reads-list">
+        <a class="read-row" href="https://lilianweng.github.io/posts/2019-09-05-evolution-strategies/#covariance-matrix-adaptation-evolution-strategies-cma-es" target="_blank" rel="noopener">
+          <span class="read-main">
+            <span class="read-title">Evolution Strategies (incl. CMA-ES)</span>
+            <span class="read-authors">Lilian Weng · Lil'Log, 2019</span>
+          </span>
+          <span class="read-ref read-ref--blog">blog</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 3. Residual learning ── -->
+    <section class="reads-group">
+      <div class="reads-topic">
+        <span class="topic-badge badge--sage">03 / RESIDUAL LEARNING</span>
+        <h2>Residual learning</h2>
+        <p>Let a conventional controller do what it's good at, and learn only the part it gets wrong.</p>
+      </div>
+      <div class="reads-list">
+        <a class="read-row" href="https://arxiv.org/abs/1812.03201" target="_blank" rel="noopener">
+          <span class="read-main">
+            <span class="read-title">Residual Reinforcement Learning for Robot Control</span>
+            <span class="read-authors">Johannink, Bahl, Nair, Luo, Kumar, Loskyll, Aparicio Ojea, Solowjow, Levine · ICRA 2019</span>
+          </span>
+          <span class="read-ref read-ref--paper">arXiv:1812.03201</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 4. Path planning ── -->
+    <section class="reads-group">
+      <div class="reads-topic">
+        <span class="topic-badge badge--steel">04 / PATH PLANNING</span>
+        <h2>Path planning</h2>
+        <p>Trajectory optimization when the vehicle articulates and the world is full of obstacles.</p>
+      </div>
+      <div class="reads-list">
+        <a class="read-row" href="https://ieeexplore.ieee.org/document/7418974" target="_blank" rel="noopener">
+          <span class="read-main">
+            <span class="read-title">An Incremental Strategy for Tractor-Trailer Vehicle Global Trajectory Optimization in the Presence of Obstacles</span>
+            <span class="read-authors">Li, Shao · IEEE ROBIO 2015</span>
+          </span>
+          <span class="read-ref read-ref--paper">IEEE 7418974</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── 5. Sim-to-real manipulation ── -->
+    <section class="reads-group">
+      <div class="reads-topic">
+        <span class="topic-badge badge--indigo">05 / SIM-TO-REAL</span>
         <h2>Sim-to-real manipulation</h2>
         <p>Crossing the gap between the simulator and a real arm: rapid adaptation, active system identification, and the messy physics of pushing.</p>
       </div>
@@ -95,76 +168,9 @@
       </div>
     </section>
 
-    <!-- ── Residual learning ── -->
-    <section class="reads-group">
-      <div class="reads-topic">
-        <h2>Residual learning</h2>
-        <p>Let a conventional controller do what it's good at, and learn only the part it gets wrong.</p>
-      </div>
-      <div class="reads-list">
-        <a class="read-row" href="https://arxiv.org/abs/1812.03201" target="_blank" rel="noopener">
-          <span class="read-main">
-            <span class="read-title">Residual Reinforcement Learning for Robot Control</span>
-            <span class="read-authors">Johannink, Bahl, Nair, Luo, Kumar, Loskyll, Aparicio Ojea, Solowjow, Levine · ICRA 2019</span>
-          </span>
-          <span class="read-ref read-ref--paper">arXiv:1812.03201</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ── Control ── -->
-    <section class="reads-group">
-      <div class="reads-topic">
-        <h2>Control</h2>
-        <p>The reference text for optimization-based control, from theory to solver.</p>
-      </div>
-      <div class="reads-list">
-        <a class="read-row" href="https://sites.engineering.ucsb.edu/~jbraw/mpc/" target="_blank" rel="noopener">
-          <span class="read-main">
-            <span class="read-title">Model Predictive Control: Theory, Computation, and Design (2nd&nbsp;Ed.)</span>
-            <span class="read-authors">Rawlings, Mayne, Diehl · Nob Hill Publishing</span>
-          </span>
-          <span class="read-ref read-ref--book">book</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ── Optimization ── -->
-    <section class="reads-group">
-      <div class="reads-topic">
-        <h2>Optimization</h2>
-        <p>Gradient-free search that still scales: the evolution-strategies family, CMA-ES included.</p>
-      </div>
-      <div class="reads-list">
-        <a class="read-row" href="https://lilianweng.github.io/posts/2019-09-05-evolution-strategies/#covariance-matrix-adaptation-evolution-strategies-cma-es" target="_blank" rel="noopener">
-          <span class="read-main">
-            <span class="read-title">Evolution Strategies (incl. CMA-ES)</span>
-            <span class="read-authors">Lilian Weng · Lil'Log, 2019</span>
-          </span>
-          <span class="read-ref read-ref--blog">blog</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ── Path planning ── -->
-    <section class="reads-group">
-      <div class="reads-topic">
-        <h2>Path planning</h2>
-        <p>Trajectory optimization when the vehicle articulates and the world is full of obstacles.</p>
-      </div>
-      <div class="reads-list">
-        <a class="read-row" href="https://ieeexplore.ieee.org/document/7418974" target="_blank" rel="noopener">
-          <span class="read-main">
-            <span class="read-title">An Incremental Strategy for Tractor-Trailer Vehicle Global Trajectory Optimization in the Presence of Obstacles</span>
-            <span class="read-authors">Li, Shao · IEEE ROBIO 2015</span>
-          </span>
-          <span class="read-ref read-ref--paper">IEEE 7418974</span>
-        </a>
-      </div>
-    </section>
-
   </main>
 
+  <script src="vnav.js"></script>
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->

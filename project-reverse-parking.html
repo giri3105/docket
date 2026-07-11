@@ -19,6 +19,7 @@
     .detail-content { gap: clamp(52px, 6.5vw, 80px); }
     .detail-section p { max-width: 72ch; }
     .detail-section p + .fig-hero,
+    .detail-section p + .math-card,
     .detail-section p + .formula-box,
     .detail-section p + .spec-strip { margin-top: 24px; }
 
@@ -58,27 +59,315 @@
     }
     .fig-hero { max-width: 900px; }
 
-    /* ── Formula Boxes ── */
-    .formula-box {
-      background: rgba(13, 13, 18, 0.9);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 24px;
+    /* ── Math Specification Cards (Pure HTML/CSS Typography) ── */
+    .math-card {
+      background: rgba(14, 14, 22, 0.88);
+      border: 1px solid rgba(160, 144, 224, 0.22);
+      border-radius: 14px;
+      margin: 28px 0;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    .math-card-header {
+      background: rgba(24, 24, 36, 0.9);
+      border-bottom: 1px solid rgba(160, 144, 224, 0.16);
+      padding: 14px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .math-card-tag {
       font-family: var(--font-mono);
-      font-size: 12px;
-      line-height: 1.7;
-      color: #D4C8F0;
-      margin: 24px 0;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #A090E0;
+      background: rgba(160, 144, 224, 0.12);
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(160, 144, 224, 0.25);
+    }
+    .math-card-title {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: #ECE8F8;
+      letter-spacing: -0.01em;
+    }
+    .math-card-body {
+      padding: 24px;
+    }
+    .math-display-box {
+      padding: 18px 22px;
+      background: rgba(8, 8, 14, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
       overflow-x: auto;
-      box-shadow: inset 0 2px 10px rgba(0,0,0,0.4);
+      margin: 10px 0;
     }
-    .formula-box .comment {
-      color: #7A7A9A;
-      font-style: italic;
+    .math-display-box--scroll {
+      max-width: 100%;
     }
-    .formula-box .hl-purple { color: #A090E0; font-weight: 700; }
-    .formula-box .hl-green  { color: #5CA899; font-weight: 700; }
-    .formula-box .hl-amber  { color: #C07840; font-weight: 700; }
+    .math-vector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .math-vector-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .math-vector-label {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: #A090E0;
+    }
+    .math-vector-desc {
+      font-size: 12.5px;
+      color: #9090A8;
+      line-height: 1.5;
+    }
+    .math-card-footer {
+      background: rgba(18, 18, 28, 0.7);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 14px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: #A0A0B8;
+    }
+    .math-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+    }
+
+    /* ── Pure HTML Math Elements & Grid Typography ── */
+    .math-vector-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 16px;
+      color: #EFEBF8;
+      white-space: nowrap;
+    }
+    .math-vec-name {
+      font-weight: 700;
+      color: #A090E0;
+      font-size: 17px;
+    }
+    .math-vec-eq {
+      color: #888;
+      margin: 0 4px;
+    }
+    .math-vec-bracket {
+      font-size: 24px;
+      font-weight: 300;
+      color: #A090E0;
+      line-height: 1;
+    }
+    .math-vec-el {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3px 7px;
+      border-radius: 5px;
+      color: #D4C8F0;
+    }
+    .math-comma {
+      color: #666;
+      margin-right: 2px;
+    }
+
+    /* Equation Table/Grid System */
+    .eq-system {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-family: var(--font-mono);
+    }
+    .eq-row {
+      display: grid;
+      grid-template-columns: 50px 24px 1fr;
+      align-items: center;
+      gap: 8px;
+      min-height: 36px;
+    }
+    .eq-lhs {
+      text-align: right;
+      font-weight: 700;
+      color: #C4B8F0;
+      font-size: 16px;
+    }
+    .eq-equals {
+      text-align: center;
+      color: #A090E0;
+      font-weight: 700;
+    }
+    .eq-rhs {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: #E6E2F5;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .eq-rhs--complex {
+      gap: 10px;
+    }
+
+    /* Fractions & Math Symbols */
+    .m-frac {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      margin: 0 3px;
+      text-align: center;
+    }
+    .m-num {
+      padding: 1px 6px;
+      border-bottom: 1.5px solid #A090E0;
+      font-size: 0.9em;
+      line-height: 1.3;
+    }
+    .m-den {
+      padding: 1px 6px;
+      font-size: 0.9em;
+      line-height: 1.3;
+    }
+    .m-paren {
+      font-size: 24px;
+      font-weight: 300;
+      color: #A090E0;
+      line-height: 1;
+      vertical-align: middle;
+    }
+    .m-big-paren {
+      font-size: 32px;
+      font-weight: 300;
+      color: #A090E0;
+      line-height: 1;
+      margin: 0 2px;
+    }
+
+    /* Total Equation Formulation */
+    .eq-total {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 16px;
+      color: #ECE8F8;
+      padding: 6px 0;
+    }
+    .m-sum {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 4px;
+      vertical-align: middle;
+    }
+    .m-sum-top {
+      font-size: 11px;
+      color: #A090E0;
+      line-height: 1.1;
+    }
+    .m-sum-sym {
+      font-size: 28px;
+      line-height: 0.9;
+      color: #D4C8F0;
+      font-weight: 400;
+    }
+    .m-sum-bot {
+      font-size: 11px;
+      color: #A090E0;
+      line-height: 1.1;
+    }
+    .eq-term-sum {
+      color: #D4C8F0;
+    }
+    .eq-plus {
+      color: #A090E0;
+      font-weight: 700;
+      margin: 0 4px;
+    }
+    .eq-term-term {
+      color: #6DC4B4;
+      font-weight: 600;
+    }
+
+    /* Multi-Stage Objective Terms Grid */
+    .math-terms-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .math-term-row {
+      display: grid;
+      grid-template-columns: 180px minmax(320px, 1.2fr) minmax(220px, 1fr);
+      align-items: center;
+      gap: 18px;
+      padding: 16px 20px;
+      background: rgba(20, 20, 32, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .math-term-row:hover {
+      background: rgba(24, 24, 38, 0.85);
+      border-color: rgba(160, 144, 224, 0.25);
+    }
+    .math-term-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 5px 10px;
+      border-radius: 6px;
+      text-align: center;
+      display: inline-block;
+      width: fit-content;
+    }
+    .math-term-badge--purple { background: rgba(160, 144, 224, 0.15); color: #B4A4F0; border: 1px solid rgba(160, 144, 224, 0.3); }
+    .math-term-badge--green  { background: rgba(92, 168, 153, 0.15);  color: #6DC4B4; border: 1px solid rgba(92, 168, 153, 0.3); }
+    .math-term-badge--amber  { background: rgba(192, 120, 64, 0.15);  color: #DDA068; border: 1px solid rgba(192, 120, 64, 0.3); }
+    .math-term-badge--red    { background: rgba(220, 80, 90, 0.15);   color: #F07080; border: 1px solid rgba(220, 80, 90, 0.3); }
+    .math-term-eq {
+      font-family: var(--font-mono);
+      font-size: 14.5px;
+      color: #E8E4F4;
+      overflow-x: auto;
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .math-term-desc {
+      font-size: 12.5px;
+      color: #A0A0B6;
+      line-height: 1.5;
+    }
+    @media (max-width: 950px) {
+      .math-term-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .eq-row {
+        grid-template-columns: 44px 20px 1fr;
+        font-size: 14px;
+      }
+    }
 
     /* ── Spec chips ── */
     .spec-strip {
@@ -202,29 +491,118 @@
         <div class="detail-section">
           <p class="detail-section-label">augmenting state space & kinematics</p>
           <p>
-            To achieve full authority over the articulated trailer, I augmented the NMPC state vector with trailer-specific kinematic states ($s_1, y_1, \tilde{\theta}_1$) along with explicit non-holonomic hitch kinematics:
+            To achieve full authority over the articulated trailer, I augmented the NMPC state vector with trailer-specific kinematic states (<i>s</i><sub>1</sub>, <i>y</i><sub>1</sub>, <i>θ&#771;</i><sub>1</sub>) along with explicit non-holonomic hitch kinematics:
           </p>
 
-          <div class="formula-box">
-            <span class="comment"># Augmented State Space & Control Vector</span><br>
-            <span class="hl-purple">x</span> = [ s₁, y₁, θ̃₀, v₀, φ₀, θ̃₁ ]^T &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-green">u</span> = [ a₀, ω_φ, ṡ ]^T<br><br>
-            <span class="comment"># Kinematic Evolution Equations (Frenet / Cartesian projection)</span><br>
-            ṡ₁ &nbsp;= v₀ cos(θ̃₀) - ṡ(1 - κy₁)<br>
-            ẏ₁ &nbsp;= v₀ sin(θ̃₀) - ṡκs₁<br>
-            d(θ̃₀)/dt = (v₀ tan(φ₀)) / L_w - κṡ<br>
-            v̇₀ &nbsp;= a₀<br>
-            φ̇₀ &nbsp;= ω_φ<br>
-            d(θ̃₁)/dt = (v₀ sin(θ̃₀ - θ̃₁)) / L_w1 - (L_h0 cos(θ̃₀ - θ̃₁)) / L_w1 * (v₀ tan(φ₀)) / L_w - κṡ
+          <div class="math-card">
+            <div class="math-card-header">
+              <span class="math-card-tag">System Formulation</span>
+              <span class="math-card-title">Augmented State Space & Control Input Vectors</span>
+            </div>
+            <div class="math-card-body">
+              <div class="math-vector-grid">
+                <div class="math-vector-item">
+                  <span class="math-vector-label">State Vector <b>x</b> ∈ ℝ<sup>6</sup></span>
+                  <div class="math-display-box math-vector-box">
+                    <span class="math-vec-name"><b>x</b></span>
+                    <span class="math-vec-eq">=</span>
+                    <span class="math-vec-bracket">[</span>
+                    <span class="math-vec-el"><i>s</i><sub>1</sub></span><span class="math-comma">,</span>
+                    <span class="math-vec-el"><i>y</i><sub>1</sub></span><span class="math-comma">,</span>
+                    <span class="math-vec-el"><i>θ&#771;</i><sub>0</sub></span><span class="math-comma">,</span>
+                    <span class="math-vec-el"><i>v</i><sub>0</sub></span><span class="math-comma">,</span>
+                    <span class="math-vec-el"><i>φ</i><sub>0</sub></span><span class="math-comma">,</span>
+                    <span class="math-vec-el"><i>θ&#771;</i><sub>1</sub></span>
+                    <span class="math-vec-bracket">]</span><sup>T</sup>
+                  </div>
+                  <span class="math-vector-desc">Trailer longitudinal/lateral Frenet coordinates (<i>s</i><sub>1</sub>, <i>y</i><sub>1</sub>), tractor heading error <i>θ&#771;</i><sub>0</sub>, velocity <i>v</i><sub>0</sub>, steering angle <i>φ</i><sub>0</sub>, trailer heading error <i>θ&#771;</i><sub>1</sub>.</span>
+                </div>
+                <div class="math-vector-item">
+                  <span class="math-vector-label">Control Input <b>u</b> ∈ ℝ<sup>3</sup></span>
+                  <div class="math-display-box math-vector-box">
+                    <span class="math-vec-name"><b>u</b></span>
+                    <span class="math-vec-eq">=</span>
+                    <span class="math-vec-bracket">[</span>
+                    <span class="math-vec-el"><i>a</i><sub>0</sub></span><span class="math-comma">,</span>
+                    <span class="math-vec-el"><i>ω</i><sub><i>φ</i></sub></span><span class="math-comma">,</span>
+                    <span class="math-vec-el"><i>ṡ</i></span>
+                    <span class="math-vec-bracket">]</span><sup>T</sup>
+                  </div>
+                  <span class="math-vector-desc">Tractor acceleration <i>a</i><sub>0</sub>, steering angular velocity <i>ω</i><sub><i>φ</i></sub>, and virtual reference path progression rate <i>ṡ</i>.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="math-card">
+            <div class="math-card-header">
+              <span class="math-card-tag">Kinematics</span>
+              <span class="math-card-title">Articulated Tractor–Trailer Differential Equations</span>
+            </div>
+            <div class="math-card-body">
+              <div class="math-display-box math-display-box--scroll">
+                <div class="eq-system">
+                  <div class="eq-row">
+                    <div class="eq-lhs"><i>ṡ</i><sub>1</sub></div>
+                    <div class="eq-equals">=</div>
+                    <div class="eq-rhs"><i>v</i><sub>0</sub> cos(<i>θ&#771;</i><sub>0</sub>) − <i>ṡ</i> (1 − <i>κ</i><i>y</i><sub>1</sub>)</div>
+                  </div>
+                  <div class="eq-row">
+                    <div class="eq-lhs"><i>ẏ</i><sub>1</sub></div>
+                    <div class="eq-equals">=</div>
+                    <div class="eq-rhs"><i>v</i><sub>0</sub> sin(<i>θ&#771;</i><sub>0</sub>) − <i>ṡ</i><i>κ</i><i>s</i><sub>1</sub></div>
+                  </div>
+                  <div class="eq-row">
+                    <div class="eq-lhs"><i>θ̇&#771;</i><sub>0</sub></div>
+                    <div class="eq-equals">=</div>
+                    <div class="eq-rhs">
+                      <div class="m-frac"><span class="m-num"><i>v</i><sub>0</sub> tan(<i>φ</i><sub>0</sub>)</span><span class="m-den"><i>L</i><sub><i>w</i></sub></span></div>
+                      <span>− <i>κ</i><i>ṡ</i></span>
+                    </div>
+                  </div>
+                  <div class="eq-row">
+                    <div class="eq-lhs"><i>v̇</i><sub>0</sub></div>
+                    <div class="eq-equals">=</div>
+                    <div class="eq-rhs"><i>a</i><sub>0</sub></div>
+                  </div>
+                  <div class="eq-row">
+                    <div class="eq-lhs"><i>φ̇</i><sub>0</sub></div>
+                    <div class="eq-equals">=</div>
+                    <div class="eq-rhs"><i>ω</i><sub><i>φ</i></sub></div>
+                  </div>
+                  <div class="eq-row">
+                    <div class="eq-lhs"><i>θ̇&#771;</i><sub>1</sub></div>
+                    <div class="eq-equals">=</div>
+                    <div class="eq-rhs eq-rhs--complex">
+                      <div class="m-frac"><span class="m-num"><i>v</i><sub>0</sub> sin(<i>θ&#771;</i><sub>0</sub> − <i>θ&#771;</i><sub>1</sub>)</span><span class="m-den"><i>L</i><sub><i>w</i>1</sub></span></div>
+                      <span>−</span>
+                      <span class="m-paren">(</span>
+                      <div class="m-frac"><span class="m-num"><i>L</i><sub><i>h</i>0</sub> cos(<i>θ&#771;</i><sub>0</sub> − <i>θ&#771;</i><sub>1</sub>)</span><span class="m-den"><i>L</i><sub><i>w</i>1</sub></span></div>
+                      <span class="m-paren">)</span>
+                      <span>·</span>
+                      <div class="m-frac"><span class="m-num"><i>v</i><sub>0</sub> tan(<i>φ</i><sub>0</sub>)</span><span class="m-den"><i>L</i><sub><i>w</i></sub></span></div>
+                      <span>− <i>κ</i><i>ṡ</i></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="math-card-footer">
+              <span class="math-legend-item"><b><i>κ</i></b>: Reference path curvature</span>
+              <span class="math-legend-item"><b><i>L<sub>w</sub></i></b>: Tractor wheelbase</span>
+              <span class="math-legend-item"><b><i>L<sub>w1</sub></i></b>: Trailer axle distance from hitch</span>
+              <span class="math-legend-item"><b><i>L<sub>h0</sub></i></b>: Hitch overhang from rear axle</span>
+            </div>
           </div>
 
           <div class="image-placeholder fig-hero">
-            <img src="img/Reverse_Trolley.jpg" class="ph-photo" alt="Augmented MPC Trailer Kinematics and State Space projection" />
-            <span class="placeholder-title">Figure 1 · 2D Cartesian and Frenet-frame kinematic projections for the tractor ($x_0, y_0, \theta_0$) and articulated passive trolley ($x_1, y_1, \theta_1$) during high-curvature reverse tracking.</span>
+            <img src="img/Reverse.gif" class="ph-photo" alt="Hardware demonstration of Articulated Reverse Parking with NMPC" />
+            <span class="placeholder-title">Figure 1 · Hardware video demonstration: Articulated reverse docking of a tractor towing an unsteered passive trolley into a narrow bay. The NMPC regulates trailer state deviations (<i>s</i><sub>1</sub>, <i>y</i><sub>1</sub> → 0) and enforces soft barrier constraints without jackknifing.</span>
           </div>
 
           <p>
-            <strong>Why include $s_1$ and $y_1$ of the trailer in the state space?</strong><br>
-            By making the longitudinal and lateral trailer deviations ($s_1, y_1$) explicit states or geometrically calculated projections, the NMPC takes them as direct regulation constraints. The optimization objective forces $s_1 \to 0$ and $y_1 \to 0$, guaranteeing that the back of the trolley precisely follows the desired path trajectory while reversing, rather than just the tractor following the path and dragging the trailer off-course.
+            <strong>Why include <i>s</i><sub>1</sub> and <i>y</i><sub>1</sub> of the trailer in the state space?</strong><br>
+            By making the longitudinal and lateral trailer deviations (<i>s</i><sub>1</sub>, <i>y</i><sub>1</sub>) explicit states or geometrically calculated projections, the NMPC takes them as direct regulation constraints. The optimization objective forces <i>s</i><sub>1</sub> → 0 and <i>y</i><sub>1</sub> → 0, guaranteeing that the back of the trolley precisely follows the desired path trajectory while reversing, rather than just the tractor following the path and dragging the trailer off-course.
           </p>
         </div>
 
@@ -235,19 +613,70 @@
             Without constraining the trailer variables in the cost function, the articulated joints remain unconstrained. I formulated a comprehensive multi-stage objective function that balances tractor tracking, geometric 6D trailer projection, control effort, actuator jerk limits, and a steep nonlinear barrier against jackknife limits:
           </p>
 
-          <div class="formula-box">
-            <span class="comment"># Multi-Stage NMPC Objective Function J over Horizon N</span><br>
-            J = ∑_{k=0}^{N-1} (<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<span class="hl-purple">Q_s s²_{1,k} + Q_y y²_{1,k} + Q_θ θ̃²_{0,k}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Tractor Tracking</span><br>
-            &nbsp;&nbsp;+ <span class="hl-green">Q_{y,tr} (y_{1,k} - L₁ sin(θ̃_{1,k}))² + Q_{θ1} θ̃²_{1,k}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Trailer Tracking (6D Projection)</span><br>
-            &nbsp;&nbsp;+ <span class="hl-amber">R_a a²_{0,k} + R_ω ω²_{φ,k} + R_s ṡ²_k</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Control Effort</span><br>
-            &nbsp;&nbsp;+ <span class="hl-amber">R_{Δa} Δa²_{0,k} + R_{Δω} Δω²_{φ,k} + R_{Δs} Δs²_k</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Actuator Jerk / Smoothness</span><br>
-            &nbsp;&nbsp;+ <span class="hl-purple">W_{jack} ( (θ̃_{0,k} - θ̃_{1,k}) / γ_{max} )¹⁰</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Soft Jackknife Barrier</span><br>
-            ) + <span class="hl-green">P_y y²_{1,N} + P_θ θ̃²_{0,N}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Terminal Cost</span>
+          <div class="math-card">
+            <div class="math-card-header">
+              <span class="math-card-tag">Optimal Control Problem</span>
+              <span class="math-card-title">Multi-Stage NMPC Objective Function over Horizon <i>N</i></span>
+            </div>
+            <div class="math-card-body">
+              <div class="math-display-box math-display-box--scroll">
+                <div class="eq-total">
+                  <span class="eq-lhs"><i>J</i></span>
+                  <span class="eq-equals">=</span>
+                  <span class="m-sum">
+                    <span class="m-sum-top"><i>N</i>−1</span>
+                    <span class="m-sum-sym">∑</span>
+                    <span class="m-sum-bot"><i>k</i>=0</span>
+                  </span>
+                  <span class="m-big-paren">(</span>
+                  <span class="eq-term-sum">ℓ<sub>track</sub>(<i>k</i>) + ℓ<sub>trailer</sub>(<i>k</i>) + ℓ<sub>ctrl</sub>(<i>k</i>) + ℓ<sub>smooth</sub>(<i>k</i>) + ℓ<sub>barrier</sub>(<i>k</i>)</span>
+                  <span class="m-big-paren">)</span>
+                  <span class="eq-plus">+</span>
+                  <span class="eq-term-term">ℓ<sub>term</sub>(<i>N</i>)</span>
+                </div>
+              </div>
+              <div class="math-terms-grid">
+                <div class="math-term-row">
+                  <div class="math-term-badge math-term-badge--purple">Tractor Tracking</div>
+                  <div class="math-term-eq">ℓ<sub>track</sub>(<i>k</i>) = <i>Q<sub>s</sub></i> <i>s</i><sub>1,<i>k</i></sub><sup>2</sup> + <i>Q<sub>y</sub></i> <i>y</i><sub>1,<i>k</i></sub><sup>2</sup> + <i>Q<sub>θ</sub></i> <i>θ&#771;</i><sub>0,<i>k</i></sub><sup>2</sup></div>
+                  <div class="math-term-desc">Penalizes longitudinal, lateral, and heading deviations of the tractor along the Frenet reference path.</div>
+                </div>
+                <div class="math-term-row">
+                  <div class="math-term-badge math-term-badge--green">Trailer 6D Projection</div>
+                  <div class="math-term-eq">ℓ<sub>trailer</sub>(<i>k</i>) = <i>Q<sub>y,tr</sub></i> (<i>y</i><sub>1,<i>k</i></sub> − <i>L</i><sub>1</sub> sin <i>θ&#771;</i><sub>1,<i>k</i></sub>)<sup>2</sup> + <i>Q<sub>θ1</sub></i> <i>θ&#771;</i><sub>1,<i>k</i></sub><sup>2</sup></div>
+                  <div class="math-term-desc">Directly penalizes trailer lateral offset and heading error so the rear trolley hitch tracks tight curves accurately.</div>
+                </div>
+                <div class="math-term-row">
+                  <div class="math-term-badge math-term-badge--amber">Control Effort</div>
+                  <div class="math-term-eq">ℓ<sub>ctrl</sub>(<i>k</i>) = <i>R<sub>a</sub></i> <i>a</i><sub>0,<i>k</i></sub><sup>2</sup> + <i>R<sub>ω</sub></i> <i>ω</i><sub><i>φ,k</i></sub><sup>2</sup> + <i>R<sub>s</sub></i> <i>ṡ</i><sub><i>k</i></sub><sup>2</sup></div>
+                  <div class="math-term-desc">Regularizes tractor acceleration, steering angular velocity, and virtual path progression velocity.</div>
+                </div>
+                <div class="math-term-row">
+                  <div class="math-term-badge math-term-badge--amber">Actuator Smoothness</div>
+                  <div class="math-term-eq">ℓ<sub>smooth</sub>(<i>k</i>) = <i>R<sub>Δa</sub></i> Δ<i>a</i><sub>0,<i>k</i></sub><sup>2</sup> + <i>R<sub>Δω</sub></i> Δ<i>ω</i><sub><i>φ,k</i></sub><sup>2</sup> + <i>R<sub>Δs</sub></i> Δ<i>s</i><sub><i>k</i></sub><sup>2</sup></div>
+                  <div class="math-term-desc">Penalizes rate-of-change (jerk) across successive control intervals for smooth physical actuator execution.</div>
+                </div>
+                <div class="math-term-row">
+                  <div class="math-term-badge math-term-badge--red">Soft Jackknife Barrier</div>
+                  <div class="math-term-eq">
+                    <span>ℓ<sub>barrier</sub>(<i>k</i>) = <i>W</i><sub>jack</sub> ·</span>
+                    <span class="m-paren">[</span>
+                    <div class="m-frac"><span class="m-num"><i>θ&#771;</i><sub>0,<i>k</i></sub> − <i>θ&#771;</i><sub>1,<i>k</i></sub></span><span class="m-den"><i>γ</i><sub>max</sub></span></div>
+                    <span class="m-paren">]</span><sup>10</sup>
+                  </div>
+                  <div class="math-term-desc">High-order (10<sup>th</sup> power) repulsive penalty against articulation angle <i>γ</i> = <i>θ&#771;</i><sub>0</sub> − <i>θ&#771;</i><sub>1</sub>. Ramps up sharply near the critical jackknife limit <i>γ</i><sub>max</sub> without causing solver infeasibility spikes.</div>
+                </div>
+                <div class="math-term-row">
+                  <div class="math-term-badge math-term-badge--purple">Terminal Cost</div>
+                  <div class="math-term-eq">ℓ<sub>term</sub>(<i>N</i>) = <i>P<sub>y</sub></i> <i>y</i><sub>1,<i>N</i></sub><sup>2</sup> + <i>P<sub>θ</sub></i> <i>θ&#771;</i><sub>0,<i>N</i></sub><sup>2</sup></div>
+                  <div class="math-term-desc">Lyapunov-inspired terminal weight guaranteeing local asymptotic stability at the final prediction step <i>N</i>.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <p>
-            Notice the <strong>Soft Jackknife Barrier</strong> term of order 10: $W_{jack} \left( \frac{\tilde{\theta}_{0,k} - \tilde{\theta}_{1,k}}{\gamma_{max}} \right)^{10}$. Because hard constraints on articulation angles ($\gamma_{max}$) often cause interior-point and SQP solvers to fail with infeasibility spikes during aggressive reverse maneuvers, this high-order penalty acts as a differentiable repulsive barrier that smoothly ramps up just before the physical jackknife limit is reached.
+            Notice the <strong>Soft Jackknife Barrier</strong> term of order 10: <i>W</i><sub>jack</sub> · [(<i>θ&#771;</i><sub>0,<i>k</i></sub> − <i>θ&#771;</i><sub>1,<i>k</i></sub>) / <i>γ</i><sub>max</sub>]<sup>10</sup>. Because hard constraints on articulation angles (<i>γ</i><sub>max</sub>) often cause interior-point and SQP solvers to fail with infeasibility spikes during aggressive reverse maneuvers, this high-order penalty acts as a differentiable repulsive barrier that smoothly ramps up just before the physical jackknife limit is reached.
           </p>
         </div>
 
@@ -262,19 +691,19 @@
             <div class="technique-card">
               <h4>Move Blocking</h4>
               <p>
-                To maintain a long prediction horizon ($N=40+$ steps) for anticipating reverse path curvature without blowing up computational complexity, control inputs ($\mathbf{u}_k$) are held constant across blocks of future intervals. This dramatically reduces the number of decision variables in the quadratic subproblem.
+                To maintain a long prediction horizon (<i>N</i> = 40+ steps) for anticipating reverse path curvature without blowing up computational complexity, control inputs (<b>u</b><sub><i>k</i></sub>) are held constant across blocks of future intervals. This dramatically reduces the number of decision variables in the quadratic subproblem.
               </p>
             </div>
             <div class="technique-card">
               <h4>Warm Starting</h4>
               <p>
-                Nonlinear optimization algorithms require good initial guesses. At control tick $t$, the solver is seeded with the shifted optimal state and control trajectories solved at step $t-1$. This warm starting enables the Acados SQP solver to converge to numerical tolerances in just 1–2 iterations (<1.5 ms execution time).
+                Nonlinear optimization algorithms require good initial guesses. At control tick <i>t</i>, the solver is seeded with the shifted optimal state and control trajectories solved at step <i>t</i> − 1. This warm starting enables the Acados SQP solver to converge to numerical tolerances in just 1–2 iterations (&lt; 1.5 ms execution time).
               </p>
             </div>
             <div class="technique-card">
               <h4>Geometric Projection</h4>
               <p>
-                Rather than introducing additional differential equations for all trailer variables that increase integration error and solver burden, $y_1$ and $s_1$ are calculated via direct geometric projection inside the objective, keeping the minimal state representation tight while enforcing accuracy.
+                Rather than introducing additional differential equations for all trailer variables that increase integration error and solver burden, <i>y</i><sub>1</sub> and <i>s</i><sub>1</sub> are calculated via direct geometric projection inside the objective, keeping the minimal state representation tight while enforcing accuracy.
               </p>
             </div>
           </div>
@@ -344,6 +773,7 @@
   </div>
 
   <script src="projects.js"></script>
+  <script src="vnav.js"></script>
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->

@@ -58,8 +58,8 @@ const overlayFrame = document.getElementById('overlay-frame');
 const overlayClose = document.getElementById('overlay-close');
 
 function openOverlay(href) {
-  // Pass ?embed to hide nav inside iframe
-  overlayFrame.src = href + (href.includes('?') ? '&' : '?') + 'embed=1';
+  // Pass ?embed to hide nav inside iframe, plus dynamic timestamp to prevent browser/iframe caching of older HTML/CSS
+  overlayFrame.src = href + (href.includes('?') ? '&' : '?') + 'embed=1&_t=' + Date.now();
   overlay.removeAttribute('aria-hidden');
   document.body.style.overflow = 'hidden';
   requestAnimationFrame(() => overlay.classList.add('open'));
@@ -73,8 +73,8 @@ function closeOverlay() {
   setTimeout(() => { overlayFrame.src = ''; }, 320);
 }
 
-// Intercept all card and card-link clicks → open overlay instead of navigating
-document.querySelectorAll('a.card, .card-link').forEach(link => {
+// Intercept all card, card-link, and vertical nav tab clicks → open overlay instead of navigating
+document.querySelectorAll('a.card, .card-link, .v-tab:not([href="index.html"])').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
     openOverlay(link.getAttribute('href') || link.href);
@@ -95,7 +95,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeOverlay
   const dots     = Array.from(carousel.querySelectorAll('.proj-dot'));
   const DURATION = 320; // ms — sharp and fast
   const EASE     = `${DURATION}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
-  const INTERVAL = 4000;
+  const INTERVAL = 6500;
 
   let current   = 0;
   let animating = false;

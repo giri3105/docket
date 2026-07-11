@@ -57,8 +57,8 @@
       display: none;
       width: 100%;
       height: auto;
-      max-height: 520px;
-      object-fit: cover;
+      max-height: none;
+      object-fit: contain;
     }
     .image-placeholder.has-image img.ph-photo,
     .image-placeholder.has-image video.ph-photo { display: block; }
@@ -281,21 +281,10 @@
             Once cross-modal training converges, the resulting model runs in real-time on our robot's edge GPU, overlaying binary traversability probability masks directly onto live RGB camera streams at high framerates:
           </p>
 
-          <!-- Result GIF Placeholder box -->
-          <div class="image-placeholder fig-hero">
-            <div class="placeholder-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-                <polygon points="10,8 15,10 10,12"></polygon>
-              </svg>
-            </div>
-            <span class="placeholder-title">Result Demonstration GIF (Placeholder)</span>
-            <span class="placeholder-desc">
-              Drop your live traversability inference animation into <code>img/traversability_demo.gif</code> and uncomment the image tag below to display real-time green/red corridor segmentation overlaying the warehouse floor.
-            </span>
-            <!-- <img src="img/traversability_demo.gif" class="ph-photo" alt="Real-time warehouse traversability segmentation mask overlay" onload="this.parentElement.classList.add('has-image')" /> -->
+          <!-- Result Demonstration GIF -->
+          <div class="image-placeholder has-image fig-hero">
+            <img src="img/traversability_demo.gif" class="ph-photo" alt="Real-time warehouse traversability segmentation mask overlay" />
+            <span class="placeholder-title">Figure 2 · Live inference demonstration: Go-Net real-time traversability segmentation mask overlaying safe corridor paths directly on the live warehouse RGB camera stream.</span>
           </div>
         </div>
 
@@ -350,6 +339,7 @@
   </div>
 
   <script src="projects.js"></script>
+  <script src="vnav.js"></script>
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->

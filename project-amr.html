@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AMR Tracker · Giri</title>
+  <title>Learning-Based MPC for Trolley-Towing AMR · Giri</title>
   <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -26,7 +26,7 @@
         <span class="project-status project-status--wip">ongoing</span>
         <span class="project-num" style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">03 / 03</span>
       </div>
-      <h1 class="detail-title">Trolley-Augmented<br>AMR Tracker</h1>
+      <h1 class="detail-title">Learning-Based MPC<br>for Trolley-Towing AMR</h1>
       <p class="detail-tagline">
         When an AMR tows a trolley, the whole system's dynamics change — but you can't always
         put sensors on the trolley. Can you learn the residual without modeling it?
@@ -47,9 +47,9 @@
             the system's effective turning radius, and creates oscillation during acceleration.
           </p>
           <p>
-            Standard AMR state estimators (wheel odometry + IMU, or LiDAR-based localization)
+            Standard AMR trajectory controllers (like nominal linear/nonlinear MPC)
             are calibrated for the base robot alone. Adding the trolley degrades tracking accuracy —
-            the estimator's dynamics model is wrong. The straightforward fix is to model the trolley
+            the controller's dynamics model is wrong. The straightforward fix is to model the trolley
             explicitly. But that requires knowing trolley mass, hitch geometry, and wheel friction —
             parameters that vary with load and are rarely measured.
           </p>
@@ -58,10 +58,10 @@
         <div class="detail-section">
           <p class="detail-section-label">the approach</p>
           <p>
-            Instead of modeling the trolley, the goal is to model the <em>residual</em> — the
-            discrepancy between what the base estimator predicts and what the system actually does.
-            If that residual can be learned from data, it can be subtracted at runtime to recover
-            accurate tracking without any explicit trolley model.
+            Instead of modeling the trolley or augmenting the state space, the goal is to model the <em>residual dynamics</em> — the
+            discrepancy between what the nominal AMR dynamics model predicts and what the coupled system actually does.
+            If that residual is learned from data, it can be integrated directly into the MPC prediction horizon
+            to recover accurate trajectory tracking without explicit trolley modeling or state augmentation.
           </p>
           <p>
             Two candidate architectures: a Gaussian Process Regression (GPR) model that gives
@@ -99,7 +99,7 @@
           </div>
           <div class="detail-stat">
             <span class="detail-stat-label">Domain</span>
-            <span class="detail-stat-value">State Estimation</span>
+            <span class="detail-stat-value">Control & Planning</span>
           </div>
           <div class="detail-stat">
             <span class="detail-stat-label">Robot</span>
@@ -107,7 +107,7 @@
           </div>
           <div class="detail-stat">
             <span class="detail-stat-label">Key idea</span>
-            <span class="detail-stat-value">Learned residual correction</span>
+            <span class="detail-stat-value">Uncertainty-aware residual MPC</span>
           </div>
         </div>
 
@@ -117,7 +117,7 @@
             <span class="tag tag--green">ROS2</span>
             <span class="tag tag--amber">Python</span>
             <span class="tag tag--purple">GPR</span>
-            <span class="tag tag--blue">State Estimation</span>
+            <span class="tag tag--blue">MPC</span>
             <span class="tag tag--green">Gazebo</span>
             <span class="tag tag--amber">NumPy / SciPy</span>
           </div>
@@ -134,6 +134,7 @@
   </div>
 
   <script src="projects.js"></script>
+  <script src="vnav.js"></script>
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->

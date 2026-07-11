@@ -15,18 +15,22 @@
   gap: clamp(40px, 6vw, 96px);
   align-items: end;
   margin-bottom: 48px;
-  opacity: 0;
-  transform: translateY(24px);
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
 }
 
 
 .about-title {
   font-size: clamp(2.8rem, 6vw, 4rem);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.95;
   margin-bottom: 24px;
-  color: var(--text);
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
 }
 .title-tick { color: var(--copper); }
 

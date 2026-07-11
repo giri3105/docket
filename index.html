@@ -7,9 +7,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
+
+  <!-- ── QUICK NAV VERTICAL RAIL (Left side tab bar) ── -->
+  <aside class="v-tabs-rail" data-upgraded="minimal-v1" aria-label="Quick Navigation">
+    <div class="v-tabs-top">
+      <a href="index.html" class="v-tab-logo" aria-label="Overview" title="Overview">G.</a>
+    </div>
+    <nav class="v-tabs-list">
+      <a href="index.html" class="v-tab is-active" data-page="index.html" data-tooltip="01 / HOME">
+        <span class="v-tab-num">01</span>
+      </a>
+      <a href="projects.html" class="v-tab" data-page="projects.html" data-tooltip="02 / BUILDS">
+        <span class="v-tab-num">02</span>
+      </a>
+      <a href="about.html" class="v-tab" data-page="about.html" data-tooltip="03 / ABOUT">
+        <span class="v-tab-num">03</span>
+      </a>
+      <a href="workex.html" class="v-tab" data-page="workex.html" data-tooltip="04 / WORK">
+        <span class="v-tab-num">04</span>
+      </a>
+      <a href="reads.html" class="v-tab" data-page="reads.html" data-tooltip="05 / READS">
+        <span class="v-tab-num">05</span>
+      </a>
+      <a href="contact.html" class="v-tab" data-page="contact.html" data-tooltip="06 / CONTACT">
+        <span class="v-tab-num">06</span>
+      </a>
+    </nav>
+    <div class="v-tabs-bottom">
+      <a href="contact.html" class="v-tab-bottom-link" aria-label="Outreach" title="Outreach">↗</a>
+    </div>
+  </aside>
+
+  <!-- ── SYSTEM HUD BAR: Spotlight Build ── -->
+  <aside class="system-hud-bar" aria-label="Featured Build Spotlight">
+    <div class="system-hud-left">
+      <span class="system-hud-badge"><span class="dot dot--active"></span>SPOTLIGHT BUILD</span>
+      <span class="system-hud-title">Targeted Striking Manipulation</span>
+      <span class="system-hud-sep" aria-hidden="true">/</span>
+      <span class="system-hud-desc">7DOF XArm precise contact &amp; angle control with LaMSA &amp; online RMA adaptation</span>
+    </div>
+    <a href="project-xarm7.html" class="system-hud-action">Watch Live Demo ↗</a>
+  </aside>
 
   <div class="layout">
 
@@ -23,35 +64,34 @@
         </p>
         <div class="intro-actions" aria-label="Primary links">
           <a href="projects.html" class="intro-action intro-action--primary">View projects</a>
-          <a href="contact.html" class="intro-action">Contact</a>
+          <a href="contact.html" class="intro-action intro-action--contact">Contact</a>
+          <a href="#" target="_blank" class="intro-action intro-action--resume">Resume ↗</a>
         </div>
       </div>
       <div class="intro-lower">
-        <div class="terminal-console">
-          <div class="terminal-header">
+        <div class="identity-readout">
+          <div class="identity-readout-header">
             <span>System Status</span>
             <span>Loc: Bengaluru</span>
           </div>
-          <div class="terminal-line">
-            <span class="terminal-prompt">&gt;</span>
-            <span class="terminal-key">Status:</span>
-            <span class="terminal-val terminal-status">ACTIVE // OPEN TO WORK</span>
-          </div>
-          <div class="terminal-line">
-            <span class="terminal-prompt">&gt;</span>
-            <span class="terminal-key">Focus:</span>
-            <span class="terminal-val">ROS2, CV, controls</span>
-          </div>
-          <div class="terminal-line">
-            <span class="terminal-prompt">&gt;</span>
-            <span class="terminal-key">Current:</span>
-            <span class="terminal-val">Autonomy Intern @ ATI</span>
-          </div>
-          <div class="terminal-line">
-            <span class="terminal-prompt">&gt;</span>
-            <span class="terminal-key">Academia:</span>
-            <span class="terminal-val">IIITDM (9.07 CGPA)</span>
-          </div>
+          <dl class="identity-readout-list">
+            <div class="identity-readout-row">
+              <dt>Status</dt>
+              <dd class="identity-readout-value--active">ACTIVE</dd>
+            </div>
+            <div class="identity-readout-row">
+              <dt>Focus</dt>
+              <dd>Robotics</dd>
+            </div>
+            <div class="identity-readout-row">
+              <dt>Current</dt>
+              <dd>Autonomy Intern @ ATI</dd>
+            </div>
+            <div class="identity-readout-row">
+              <dt>Academia</dt>
+              <dd>IIITDM (9.07 CGPA)</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </div>
@@ -80,6 +120,7 @@
             <span class="proj-slide-num" aria-hidden="true">01</span>
             <div class="proj-slide-header">
               <span class="proj-badge proj-badge--done">completed</span>
+              <span class="project-status--spotlight" style="margin-left: 6px;"><span class="dot dot--sm"></span>spotlight build</span>
             </div>
             <h3 class="proj-slide-title">Targeted Striking<br>Manipulation</h3>
             <p class="proj-slide-desc">7DOF XArm hitting targets with precise contact velocity and angle — integrated system design, learning-based controls, and system identification.</p>
@@ -115,7 +156,7 @@
         </div>
 
         <!-- Slide 03 · AMR Tracker (full-bleed diagram photo) -->
-        <div class="proj-slide proj-slide--sage proj-slide--photo proj-slide--photo-amr" data-href="project-amr.html" tabindex="0" role="link" aria-label="View project: Trolley-Augmented AMR Tracker">
+        <div class="proj-slide proj-slide--sage proj-slide--photo proj-slide--photo-amr" data-href="project-amr.html" tabindex="0" role="link" aria-label="View project: Learning-Based MPC for Trolley-Towing AMR">
           <div class="proj-slide-photo-bg">
             <img src="img/amr-diagram.webp" class="proj-slide-photo-img proj-slide-photo-img--amr" alt="AMR trajectory tracking residual dynamics diagram" loading="lazy"
                  onerror="this.closest('.proj-slide').classList.remove('proj-slide--photo','proj-slide--photo-amr'); this.parentElement.remove();">
@@ -125,11 +166,12 @@
             <div class="proj-slide-header">
               <span class="proj-badge--wip">ongoing</span>
             </div>
-            <h3 class="proj-slide-title">Trolley-Augmented<br>AMR Tracker</h3>
-            <p class="proj-slide-desc">Learning the residual dynamics of an AMR towing a trolley — without modeling the trolley explicitly. GPR + MLP.</p>
+            <h3 class="proj-slide-title">Learning-Based MPC<br>for Trolley-Towing AMR</h3>
+            <p class="proj-slide-desc">Learning residual dynamics for an MPC controlling an AMR towing an unmodeled trolley without state augmentation. GPR + MLP.</p>
             <div class="proj-slide-tags">
               <span class="tag tag--green">ROS2</span>
               <span class="tag tag--purple">GPR</span>
+              <span class="tag tag--blue">MPC</span>
               <span class="tag tag--amber">Python</span>
             </div>
             <span class="proj-slide-cta">View project →</span>
@@ -206,7 +248,7 @@
       <h2 class="card-title">rigorous.<br>reflective.<br>builder.</h2>
       <div class="about-preview">
         <p class="about-preview-line">Hardware instincts, software leverage, robotics as the meeting point.</p>
-        <span class="about-preview-note">Smart Manufacturing · IIITDM Chennai</span>
+        <p class="about-preview-note">B.Tech in Smart Manufacturing, IIITDM Chennai</p>
       </div>
     </a>
 
@@ -303,11 +345,6 @@
         <span class="card-label">Currently excited by</span>
         <span class="card-arrow" aria-hidden="true">↗</span>
       </div>
-      <h2 class="card-title">world models &amp;<br>embodied AI.</h2>
-      <div class="card-tags card-tags--sm">
-        <span class="tag tag--yellow">Embodied AI</span>
-        <span class="tag tag--yellow">World models</span>
-      </div>
       <p class="card-desc">Questions I am tracking beyond the current project list.</p>
     </a>
 
@@ -342,6 +379,7 @@
   </div>
 
   <script src="main.js"></script>
+  <script src="vnav.js"></script>
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->

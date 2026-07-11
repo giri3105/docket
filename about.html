@@ -7,8 +7,28 @@
   <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="about.css?v=2" />
+  <style>
+    /* Absolute visibility guarantee for standalone & iframe overlay modes */
+    .about-header, header.about-header, html.embedded .about-header {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      animation: none !important;
+      display: grid !important;
+    }
+    .about-title, html.embedded .about-title {
+      color: #FFFFFF !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: block !important;
+    }
+    .about-head-main, .about-readout, .page-eyebrow, .about-tagline {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  </style>
 </head>
 <body class="page-body">
 
@@ -45,7 +65,7 @@
         </div>
         <div class="readout-row">
           <span class="readout-key">status</span>
-          <span class="readout-val readout-open"><span class="dot dot--sm"></span>open to work</span>
+          <span class="readout-val readout-open"><span class="dot dot--sm"></span>active</span>
         </div>
       </div>
     </header>
@@ -99,12 +119,10 @@
           <div class="panel-section">
             <span class="sidebar-card-label">core stack</span>
             <div class="stack-tags">
-              <span class="tag tag--green">ROS2</span>
-              <span class="tag tag--blue">C++</span>
-              <span class="tag tag--amber">Python</span>
-              <span class="tag tag--purple">Computer Vision</span>
-              <span class="tag tag--green">SLAM</span>
-              <span class="tag tag--blue">Gazebo</span>
+              <span class="tag tag--green">Robotics</span>
+              <span class="tag tag--blue">Design and Development</span>
+              <span class="tag tag--amber">Controls</span>
+              <span class="tag tag--purple">Research</span>
             </div>
           </div>
           <div class="panel-section">
@@ -124,9 +142,9 @@
     <div class="currently-wrap">
       <span class="currently-label">currently exploring</span>
       <div class="currently-items">
-        <div class="currently-item">Embodied AI</div>
-        <div class="currently-item">World Models</div>
-        <div class="currently-item">Sim-to-real transfer</div>
+        <div class="currently-item">RL</div>
+        <div class="currently-item">Mathematics of Classical Control</div>
+        <div class="currently-item">Manipulative Controls</div>
       </div>
     </div>
 
@@ -173,6 +191,7 @@
 
   <script src="highlights.js"></script>
   <script src="about.js"></script>
+  <script src="vnav.js"></script>
 <!-- impeccable-live-start -->
 <script src="http://localhost:8400/live.js"></script>
 <!-- impeccable-live-end -->
