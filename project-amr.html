@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMR Tracker · Giri</title>
+  <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="projects.css" />
+</head>
+<body class="page-body">
+
+  <nav class="page-nav">
+    <a href="index.html" class="page-nav-logo">Giri</a>
+    <a href="projects.html" class="page-nav-back">← projects</a>
+  </nav>
+
+  <div class="detail-wrap">
+
+    <a href="projects.html" class="detail-back">← all projects</a>
+
+    <header class="detail-header">
+      <div class="detail-meta">
+        <span class="project-status project-status--wip">ongoing</span>
+        <span class="project-num" style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">03 / 03</span>
+      </div>
+      <h1 class="detail-title">Trolley-Augmented<br>AMR Tracker</h1>
+      <p class="detail-tagline">
+        When an AMR tows a trolley, the whole system's dynamics change — but you can't always
+        put sensors on the trolley. Can you learn the residual without modeling it?
+      </p>
+    </header>
+
+    <div class="detail-rule"></div>
+
+    <div class="detail-grid">
+
+      <div class="detail-content">
+
+        <div class="detail-section">
+          <p class="detail-section-label">the problem</p>
+          <p>
+            Autonomous Mobile Robots in warehouses often tow passive trolleys: unpowered, unsteered
+            carts that couple to the AMR mechanically. The trolley adds significant inertia, changes
+            the system's effective turning radius, and creates oscillation during acceleration.
+          </p>
+          <p>
+            Standard AMR state estimators (wheel odometry + IMU, or LiDAR-based localization)
+            are calibrated for the base robot alone. Adding the trolley degrades tracking accuracy —
+            the estimator's dynamics model is wrong. The straightforward fix is to model the trolley
+            explicitly. But that requires knowing trolley mass, hitch geometry, and wheel friction —
+            parameters that vary with load and are rarely measured.
+          </p>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">the approach</p>
+          <p>
+            Instead of modeling the trolley, the goal is to model the <em>residual</em> — the
+            discrepancy between what the base estimator predicts and what the system actually does.
+            If that residual can be learned from data, it can be subtracted at runtime to recover
+            accurate tracking without any explicit trolley model.
+          </p>
+          <p>
+            Two candidate architectures: a Gaussian Process Regression (GPR) model that gives
+            uncertainty estimates alongside the residual prediction, which is useful for knowing
+            when to trust the correction; and a small MLP trained online as the trolley's load
+            changes. The GPR is interpretable and sample-efficient; the MLP can adapt faster
+            to distribution shift.
+          </p>
+          <p>
+            The inputs to the residual model are: current AMR velocity, angular velocity, and
+            a short history of commanded velocities — features that correlate with trolley-induced
+            dynamics without requiring any direct trolley observation.
+          </p>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">current status</p>
+          <p>
+            Simulation environment set up in Gazebo with a parameterized trolley model.
+            Initial data collection and GPR baseline underway. Comparing tracking error
+            with and without the learned residual correction across different trolley loads
+            and maneuver profiles.
+          </p>
+        </div>
+
+      </div>
+
+      <aside class="detail-sidebar">
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">project info</span>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Status</span>
+            <span class="detail-stat-value" style="color:#C07840;">Ongoing</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Domain</span>
+            <span class="detail-stat-value">State Estimation</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Robot</span>
+            <span class="detail-stat-value">AMR + passive trolley</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Key idea</span>
+            <span class="detail-stat-value">Learned residual correction</span>
+          </div>
+        </div>
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">tech stack</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <span class="tag tag--green">ROS2</span>
+            <span class="tag tag--amber">Python</span>
+            <span class="tag tag--purple">GPR</span>
+            <span class="tag tag--blue">State Estimation</span>
+            <span class="tag tag--green">Gazebo</span>
+            <span class="tag tag--amber">NumPy / SciPy</span>
+          </div>
+        </div>
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">links</span>
+          <a href="#" class="detail-sidebar-link">GitHub (private for now) <span>—</span></a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <script src="projects.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

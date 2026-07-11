@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Currently Excited By · Giri</title>
+  <meta name="description" content="Explore the open questions and technical challenges Giri is tracking in robotics, embodied AI, zero-shot transfer, and control systems." />
+  <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="exciting.css" />
+</head>
+<body class="page-body">
+
+  <nav class="page-nav">
+    <a href="index.html" class="page-nav-logo">Giri</a>
+    <a href="index.html" class="page-nav-back">← back</a>
+  </nav>
+
+  <main class="exciting-content">
+    <p class="page-eyebrow">04 / 06</p>
+    <h1 class="page-title">Currently<br>excited by</h1>
+    <p class="ex-subtitle">Three open questions living rent-free in my head.</p>
+
+    <div class="ex-list" id="ex-list">
+
+      <article class="ex-item" data-index="0">
+        <div class="ex-number">01</div>
+        <div class="ex-body">
+          <h2 class="ex-question">
+            Can I build a platform where someone plugs in a
+            <span class="hl" data-hl-type="highlighter" data-hl-color="yellow" data-popup="ex1">functional end-effector</span>
+            and gets
+            <span class="hl" data-hl-type="box" data-hl-color="green" data-popup="ex2">zero-shot sim-to-real transfer</span>?
+          </h2>
+          <p class="ex-detail">
+            Train entirely in simulation, deploy in the real world without fine-tuning.
+            The sim-to-real gap has always been the expensive part — I want to
+            make that gap disappear for arbitrary end-effectors.
+          </p>
+        </div>
+      </article>
+
+      <article class="ex-item" data-index="1">
+        <div class="ex-number">02</div>
+        <div class="ex-body">
+          <h2 class="ex-question">
+            In
+            <span class="hl" data-hl-type="underline" data-hl-color="blue" data-popup="ex3">traversability analysis</span>
+            and
+            <span class="hl" data-hl-type="circle" data-hl-color="orange" data-popup="ex4">anomaly detection</span>
+            — how do you handle the scarcity of negative samples?
+          </h2>
+          <p class="ex-detail">
+            Collecting "bad" examples — terrain a robot shouldn't cross, faults that rarely happen —
+            is expensive and sometimes dangerous. The field has answers, but I'm digging into
+            which ones hold up in actual deployment.
+          </p>
+        </div>
+      </article>
+
+      <article class="ex-item" data-index="2">
+        <div class="ex-number">03</div>
+        <div class="ex-body">
+          <h2 class="ex-question">
+            How do you build an
+            <span class="hl" data-hl-type="highlighter" data-hl-color="pink" data-popup="ex5">aggressive controller</span>
+            for an autonomous vehicle that knows
+            <span class="hl" data-hl-type="box" data-hl-color="white" data-popup="ex6">its own uncertainties</span>?
+          </h2>
+          <p class="ex-detail">
+            Aggressive doesn't mean reckless — it means extracting maximum performance while
+            staying inside the safe envelope. If the vehicle knows where its model breaks down,
+            can it use that self-knowledge to push harder where it's confident?
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Popups -->
+  <div class="popup" id="ex1">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">end-effector</span>
+    <p>The part of a robot arm that interacts with the world — grippers, suction cups, tools. Each has a unique geometry and contact model, making generalised sim training hard.</p>
+  </div>
+  <div class="popup" id="ex2">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">zero-shot transfer</span>
+    <p>A policy trained in simulation that works in the real world immediately, with zero real-world data. The challenge: simulators are approximations, and real physics doesn't forgive edge cases.</p>
+  </div>
+  <div class="popup" id="ex3">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">traversability</span>
+    <p>Given a patch of terrain, can the robot safely move through it? Soft soil, steep slopes, wet surfaces — each needs different risk assessment. Failures are rare and expensive to collect.</p>
+  </div>
+  <div class="popup" id="ex4">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">anomaly detection</span>
+    <p>Detecting when something is wrong — a failing component, an unexpected obstacle, an out-of-distribution environment. The catch: you need examples of "wrong" to train on, and those are rare by definition.</p>
+  </div>
+  <div class="popup" id="ex5">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">aggressive control</span>
+    <p>Controllers that operate near the vehicle's dynamic limits — high speed, sharp cornering, hard braking. Usually requires precise models and careful tuning. Can learned uncertainty make this safer?</p>
+  </div>
+  <div class="popup" id="ex6">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">uncertainty-aware</span>
+    <p>A vehicle that knows "I'm not sure about this surface" or "my model never saw rain" — and uses that self-knowledge to slow down, re-plan, or ask for help. Epistemic humility, in hardware.</p>
+  </div>
+
+  <div class="popup-backdrop"></div>
+
+  <script src="highlights.js"></script>
+  <script src="exciting.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

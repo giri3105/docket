@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- ── INTRO CELL ── -->
+    <div class="intro-cell">
+      <div class="intro-inner">
+        <span class="intro-label">Robotics &amp; Software Engineer</span>
+        <h1 class="intro-name">Your<br>Name</h1>
+        <p class="intro-location">Bengaluru, India</p>
+      </div>
+      <div class="intro-status">
+        <span class="dot"></span>
+        <span class="status-text">open to work</span>
+      </div>
+    </div>
+
+    <!-- ── PROJECTS ── large -->
+    <a href="projects.html" class="card card--projects">
+      <div class="card-top">
+        <span class="card-label">Projects</span>
+        <span class="card-arrow">↗</span>
+      </div>
+      <div class="card-visual">
+        <svg viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Terminal window frame -->
+          <rect x="20" y="10" width="300" height="160" rx="10" fill="#0f0f0f" stroke="#2a2a2a" stroke-width="1.5"/>
+          <!-- Titlebar dots -->
+          <circle cx="38" cy="26" r="5" fill="#3a3a3a"/>
+          <circle cx="54" cy="26" r="5" fill="#3a3a3a"/>
+          <circle cx="70" cy="26" r="5" fill="#3a3a3a"/>
+          <line x1="20" y1="38" x2="320" y2="38" stroke="#2a2a2a" stroke-width="1"/>
+
+          <!-- Project row 1 -->
+          <rect x="36" y="52" width="8" height="8" rx="2" fill="#3ECFB2" opacity="0.8"/>
+          <rect x="52" y="54" width="90" height="4" rx="2" fill="#3ECFB2" opacity="0.5"/>
+          <rect x="52" y="62" width="60" height="3" rx="1.5" fill="#3a3a3a"/>
+          <rect x="238" y="52" width="46" height="14" rx="4" fill="#1a2e2b" stroke="#3ECFB2" stroke-width="1" opacity="0.7"/>
+          <rect x="246" y="57" width="30" height="3" rx="1.5" fill="#3ECFB2" opacity="0.5"/>
+
+          <!-- Divider -->
+          <line x1="36" y1="78" x2="304" y2="78" stroke="#1e1e1e" stroke-width="1"/>
+
+          <!-- Project row 2 -->
+          <rect x="36" y="88" width="8" height="8" rx="2" fill="#FFB347" opacity="0.8"/>
+          <rect x="52" y="90" width="110" height="4" rx="2" fill="#FFB347" opacity="0.5"/>
+          <rect x="52" y="98" width="75" height="3" rx="1.5" fill="#3a3a3a"/>
+          <rect x="238" y="88" width="46" height="14" rx="4" fill="#2a2215" stroke="#FFB347" stroke-width="1" opacity="0.7"/>
+          <rect x="246" y="93" width="30" height="3" rx="1.5" fill="#FFB347" opacity="0.5"/>
+
+          <!-- Divider -->
+          <line x1="36" y1="114" x2="304" y2="114" stroke="#1e1e1e" stroke-width="1"/>
+
+          <!-- Project row 3 -->
+          <rect x="36" y="124" width="8" height="8" rx="2" fill="#C4B5FD" opacity="0.8"/>
+          <rect x="52" y="126" width="80" height="4" rx="2" fill="#C4B5FD" opacity="0.5"/>
+          <rect x="52" y="134" width="55" height="3" rx="1.5" fill="#3a3a3a"/>
+          <rect x="238" y="124" width="46" height="14" rx="4" fill="#1e1a2e" stroke="#C4B5FD" stroke-width="1" opacity="0.7"/>
+          <rect x="246" y="129" width="30" height="3" rx="1.5" fill="#C4B5FD" opacity="0.5"/>
+
+          <!-- Cursor blink -->
+          <rect x="36" y="154" width="7" height="10" rx="1" fill="#3ECFB2" opacity="0.5">
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="1.2s" repeatCount="indefinite"/>
+          </rect>
+        </svg>
+      </div>
+      <div class="card-bottom">
+        <p class="card-desc">Robots I've built, systems I've designed, code I'm proud of.</p>
+        <span class="card-count">06 projects</span>
+      </div>
+    </a>
+
+    <!-- ── ABOUT ── wide -->
+    <a href="about.html" class="card card--about">
+      <div class="card-top">
+        <span class="card-label">About me</span>
+        <span class="card-arrow">↗</span>
+      </div>
+      <div class="card-visual" style="justify-content:flex-end; padding-right: 8px;">
+        <!-- Avatar placeholder silhouette -->
+        <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-height:80px; opacity:0.55;">
+          <circle cx="50" cy="28" r="20" stroke="#FFB347" stroke-width="1.5"/>
+          <path d="M20 82 Q22 58 50 56 Q78 58 80 82" stroke="#FFB347" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- face detail -->
+          <circle cx="43" cy="26" r="3" fill="#FFB347" opacity="0.6"/>
+          <circle cx="57" cy="26" r="3" fill="#FFB347" opacity="0.6"/>
+          <path d="M44 34 Q50 39 56 34" stroke="#FFB347" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- add photo label -->
+          <text x="50" y="88" text-anchor="middle" font-family="monospace" font-size="6" fill="#666">add your photo</text>
+        </svg>
+      </div>
+      <p class="card-desc">Who I am, what I build, why I care about autonomous machines.</p>
+    </a>
+
+    <!-- ── WORK EX ── tall right column -->
+    <a href="workex.html" class="card card--work">
+      <div class="card-top">
+        <span class="card-label">Work</span>
+        <span class="card-arrow">↗</span>
+      </div>
+      <div class="card-visual">
+        <!-- Timeline -->
+        <svg viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-height:140px;">
+          <!-- Vertical line -->
+          <line x1="28" y1="10" x2="28" y2="140" stroke="#2a2a2a" stroke-width="1.5"/>
+          <!-- Role 1 -->
+          <circle cx="28" cy="22" r="5" fill="#3ECFB2" opacity="0.8"/>
+          <rect x="42" y="16" width="48" height="5" rx="2.5" fill="#3ECFB2" opacity="0.4"/>
+          <rect x="42" y="25" width="32" height="3" rx="1.5" fill="#2a2a2a"/>
+          <!-- Role 2 -->
+          <circle cx="28" cy="65" r="5" fill="#FFB347" opacity="0.8"/>
+          <rect x="42" y="59" width="42" height="5" rx="2.5" fill="#FFB347" opacity="0.4"/>
+          <rect x="42" y="68" width="28" height="3" rx="1.5" fill="#2a2a2a"/>
+          <!-- Role 3 -->
+          <circle cx="28" cy="108" r="5" fill="#C4B5FD" opacity="0.7"/>
+          <rect x="42" y="102" width="50" height="5" rx="2.5" fill="#C4B5FD" opacity="0.4"/>
+          <rect x="42" y="111" width="36" height="3" rx="1.5" fill="#2a2a2a"/>
+          <!-- Future dot -->
+          <circle cx="28" cy="138" r="3" fill="none" stroke="#333" stroke-width="1.5" stroke-dasharray="2 2"/>
+        </svg>
+      </div>
+      <div class="card-bottom">
+        <p class="card-desc">Companies I've contributed to and problems I've solved.</p>
+        <span class="card-count">3 roles</span>
+      </div>
+    </a>
+
+    <!-- ── EXCITING ── small -->
+    <a href="exciting.html" class="card card--exciting">
+      <div class="card-top">
+        <span class="card-label">Currently excited by</span>
+        <span class="card-arrow">↗</span>
+      </div>
+      <div class="card-visual" style="padding: 4px 0;">
+        <!-- Three thought nodes -->
+        <svg viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-height:56px;">
+          <!-- Connecting lines -->
+          <line x1="35" y1="30" x2="70" y2="15" stroke="#FFE566" stroke-width="1" opacity="0.3"/>
+          <line x1="35" y1="30" x2="70" y2="45" stroke="#FFE566" stroke-width="1" opacity="0.3"/>
+          <line x1="70" y1="15" x2="105" y2="30" stroke="#FFE566" stroke-width="1" opacity="0.3"/>
+          <line x1="70" y1="45" x2="105" y2="30" stroke="#FFE566" stroke-width="1" opacity="0.3"/>
+          <!-- Node 1 -->
+          <circle cx="35" cy="30" r="10" fill="#1a1800" stroke="#FFE566" stroke-width="1.5" opacity="0.9"/>
+          <text x="35" y="34" text-anchor="middle" font-family="monospace" font-size="8" fill="#FFE566">01</text>
+          <!-- Node 2a -->
+          <circle cx="70" cy="15" r="10" fill="#1a1800" stroke="#FFE566" stroke-width="1.5" opacity="0.7"/>
+          <text x="70" y="19" text-anchor="middle" font-family="monospace" font-size="8" fill="#FFE566">02</text>
+          <!-- Node 2b -->
+          <circle cx="70" cy="45" r="10" fill="#1a1800" stroke="#FFE566" stroke-width="1.5" opacity="0.7"/>
+          <text x="70" y="49" text-anchor="middle" font-family="monospace" font-size="8" fill="#FFE566">03</text>
+          <!-- Node 3 -->
+          <circle cx="105" cy="30" r="10" fill="#1a1800" stroke="#FFE566" stroke-width="1" opacity="0.4" stroke-dasharray="3 2"/>
+        </svg>
+      </div>
+      <p class="card-desc">What's on my mind right now.</p>
+    </a>
+
+    <!-- ── READS ── medium -->
+    <a href="reads.html" class="card card--reads">
+      <div class="card-top">
+        <span class="card-label">Good reads</span>
+        <span class="card-arrow">↗</span>
+      </div>
+      <div class="card-visual">
+        <!-- Book spines -->
+        <svg viewBox="0 0 180 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-height:72px;">
+          <!-- Shelf line -->
+          <line x1="10" y1="72" x2="170" y2="72" stroke="#2a2a2a" stroke-width="1.5"/>
+          <!-- Book 1 -->
+          <rect x="16" y="20" width="18" height="52" rx="2" fill="#1a2e2b" stroke="#3ECFB2" stroke-width="1.2"/>
+          <line x1="20" y1="28" x2="30" y2="28" stroke="#3ECFB2" stroke-width="1" opacity="0.5"/>
+          <line x1="20" y1="32" x2="30" y2="32" stroke="#3ECFB2" stroke-width="1" opacity="0.3"/>
+          <!-- Book 2 (tall) -->
+          <rect x="38" y="10" width="22" height="62" rx="2" fill="#2a2215" stroke="#FFB347" stroke-width="1.2"/>
+          <line x1="42" y1="20" x2="56" y2="20" stroke="#FFB347" stroke-width="1" opacity="0.5"/>
+          <line x1="42" y1="25" x2="56" y2="25" stroke="#FFB347" stroke-width="1" opacity="0.3"/>
+          <!-- Book 3 (short) -->
+          <rect x="64" y="36" width="16" height="36" rx="2" fill="#1e1a2e" stroke="#C4B5FD" stroke-width="1.2"/>
+          <!-- Book 4 -->
+          <rect x="84" y="18" width="20" height="54" rx="2" fill="#2e1a1a" stroke="#FF9ECB" stroke-width="1.2"/>
+          <line x1="88" y1="28" x2="100" y2="28" stroke="#FF9ECB" stroke-width="1" opacity="0.5"/>
+          <!-- Book 5 (leaning) -->
+          <rect x="108" y="24" width="16" height="48" rx="2" fill="#1a2030" stroke="#7EC8FF" stroke-width="1.2" transform="rotate(-4 116 48)"/>
+          <!-- Book 6 -->
+          <rect x="132" y="14" width="24" height="58" rx="2" fill="#1a2e2b" stroke="#3ECFB2" stroke-width="1.2" opacity="0.6"/>
+        </svg>
+      </div>
+      <p class="card-desc">Books, papers, and articles that shaped how I think.</p>
+    </a>
+
+    <!-- ── CONTACT ── small -->
+    <a href="contact.html" class="card card--contact">
+      <div class="card-top">
+        <span class="card-label">Contact</span>
+        <span class="card-arrow">↗</span>
+      </div>
+      <div class="card-visual" style="padding: 2px 0;">
+        <!-- @ symbol, stylized -->
+        <svg viewBox="0 0 80 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-height:44px;">
+          <circle cx="40" cy="25" r="10" stroke="#3ECFB2" stroke-width="1.8" opacity="0.7"/>
+          <circle cx="40" cy="25" r="4" fill="#3ECFB2" opacity="0.4"/>
+          <path d="M50 25 C50 36 58 38 58 25 C58 13 48 6 38 6 C26 6 18 15 18 25 C18 35 26 44 40 44" stroke="#3ECFB2" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+        </svg>
+      </div>
+      <p class="card-desc" style="color: var(--muted); font-size: 0.85rem;">Let's talk.</p>
+    </a>
+
+  </div>
+
+  <!-- ── OVERLAY PANEL ── -->
+  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-label="Content panel">
+    <div class="overlay-panel">
+      <button class="overlay-close" id="overlay-close" aria-label="Close panel">✕</button>
+      <iframe class="overlay-frame" id="overlay-frame" title="Page content"></iframe>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

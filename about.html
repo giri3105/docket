@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Giri</title>
+  <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body class="page-body">
+
+  <nav class="page-nav">
+    <a href="index.html" class="page-nav-logo">Giri</a>
+    <a href="index.html" class="page-nav-back">← back</a>
+  </nav>
+
+  <div class="about-wrap">
+
+    <!-- ── HEADER: title left, instrument readout right ── -->
+    <header class="about-header">
+      <div class="about-head-main">
+        <p class="page-eyebrow">01 / 06</p>
+        <h1 class="about-title">About<br>me<span class="title-tick">.</span></h1>
+        <p class="about-tagline">
+          Robotics engineer. Software thinker.<br>
+          Obsessed with machines that understand the world.
+        </p>
+      </div>
+
+      <div class="about-readout" aria-label="quick facts">
+        <div class="readout-row">
+          <span class="readout-key">base</span>
+          <span class="readout-val">Bengaluru, IN · 12.97°N 77.59°E</span>
+        </div>
+        <div class="readout-row">
+          <span class="readout-key">education</span>
+          <span class="readout-val">IIITDM Chennai</span>
+        </div>
+        <div class="readout-row">
+          <span class="readout-key">degree</span>
+          <span class="readout-val">B.Tech Smart Manufacturing</span>
+        </div>
+        <div class="readout-row">
+          <span class="readout-key">status</span>
+          <span class="readout-val readout-open"><span class="dot dot--sm"></span>open to work</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="about-rule"></div>
+
+    <!-- ── MAIN GRID ── -->
+    <div class="about-grid">
+
+      <!-- Left: narrative -->
+      <div class="about-story">
+
+        <p class="about-para">
+          I studied
+          <span class="hl" data-hl-type="highlighter" data-hl-color="yellow" data-popup="pop-btech">B.Tech in Smart Manufacturing</span>
+          at
+          <span class="hl" data-hl-type="box" data-hl-color="white" data-popup="pop-iiitdm">IIITDM Chennai</span>
+          — a degree that sits right at the intersection of machines and computation.
+          I came in wired for hardware: circuit boards, mechanisms, the tactile satisfaction of something physical working.
+        </p>
+
+        <p class="about-para">
+          Then somewhere along the way,
+          <span class="hl" data-hl-type="underline" data-hl-color="orange" data-popup="pop-software">software pulled me in</span>
+          — the elegance of systems that adapt, the leverage of code that scales.
+          That drift led me straight to
+          <span class="hl" data-hl-type="circle" data-hl-color="green" data-popup="pop-robotics">robotics</span>
+          — the one discipline where hardware and software aren't just connected, they're inseparable.
+        </p>
+
+        <p class="about-para">
+          Along the way I've met some of the
+          <span class="hl" data-hl-type="highlighter" data-hl-color="blue" data-popup="pop-community">finest minds in Indian robotics</span>,
+          which only sharpened my sense of what's worth building.
+        </p>
+
+        <p class="about-para">
+          For a long time I was focused on finding a
+          <span class="hl" data-hl-type="underline" data-hl-color="orange" data-popup="pop-oldlens">real-world problem to solve with robotics</span>.
+          Recently my perspective widened: I'm not just looking at problems the world has that robots could fix —
+          I'm also paying close attention to the
+          <span class="hl" data-hl-type="highlighter" data-hl-color="pink" data-popup="pop-newlens">unsolved problems inside robotics itself</span>.
+          The field has deep open questions, and those might be worth my time too.
+        </p>
+
+      </div>
+
+      <!-- Right: one instrument panel, copper signal -->
+      <aside class="about-sidebar">
+        <div class="sidebar-card about-panel">
+          <div class="panel-section">
+            <span class="sidebar-card-label">core stack</span>
+            <div class="stack-tags">
+              <span class="tag tag--green">ROS2</span>
+              <span class="tag tag--blue">C++</span>
+              <span class="tag tag--amber">Python</span>
+              <span class="tag tag--purple">Computer Vision</span>
+              <span class="tag tag--green">SLAM</span>
+              <span class="tag tag--blue">Gazebo</span>
+            </div>
+          </div>
+          <div class="panel-section">
+            <span class="sidebar-card-label">find me</span>
+            <div class="sidebar-links">
+              <a href="#" class="sidebar-link">GitHub ↗</a>
+              <a href="#" class="sidebar-link">LinkedIn ↗</a>
+              <a href="#" class="sidebar-link">Resume ↗</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- ── Currently exploring: full-width band, amber voice ── -->
+    <div class="currently-wrap">
+      <span class="currently-label">currently exploring</span>
+      <div class="currently-items">
+        <div class="currently-item">Embodied AI</div>
+        <div class="currently-item">World Models</div>
+        <div class="currently-item">Sim-to-real transfer</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Popups -->
+  <div class="popup" id="pop-btech">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">education</span>
+    <p>Smart Manufacturing sits at the intersection of mechanical, electronics, and computation — good ground for building broad intuition before narrowing into robotics.</p>
+  </div>
+  <div class="popup" id="pop-iiitdm">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">institute</span>
+    <p>IIITDM Chennai — Indian Institute of Information Technology, Design and Manufacturing. Design thinking baked into a technical curriculum.</p>
+  </div>
+  <div class="popup" id="pop-software">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">turning point</span>
+    <p>Hardware gives you the problem. Software gives you the leverage. I wanted both — which is exactly what robotics is.</p>
+  </div>
+  <div class="popup" id="pop-robotics">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">discipline</span>
+    <p>The only engineering field where mechanical, electrical, and software constraints are all first-class. You can't afford to ignore any of them.</p>
+  </div>
+  <div class="popup" id="pop-community">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">community</span>
+    <p>The Indian robotics ecosystem is smaller than it looks from outside, but the people in it are building seriously ambitious things. Meeting them changed what I thought was possible.</p>
+  </div>
+  <div class="popup" id="pop-oldlens">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">old lens</span>
+    <p>The original framing: find a messy real-world domain — logistics, agriculture, healthcare — and ask "could a robot help here?" Still a valid question.</p>
+  </div>
+  <div class="popup" id="pop-newlens">
+    <button class="popup-close" aria-label="Close">✕</button>
+    <span class="popup-tag">new lens</span>
+    <p>The wider framing: robotics itself has unsolved problems — sim-to-real transfer, safe exploration, uncertainty-aware control. Solving these unlocks everything downstream.</p>
+  </div>
+
+  <div class="popup-backdrop"></div>
+
+  <script src="highlights.js"></script>
+  <script src="about.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

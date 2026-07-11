@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traversability Estimation · Giri</title>
+  <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="projects.css" />
+  <style>
+    /* ── Technical layout sizing ── */
+    .detail-wrap { max-width: 1280px; }
+    .detail-grid {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: clamp(36px, 4.5vw, 68px);
+    }
+    .detail-content { gap: clamp(52px, 6.5vw, 80px); }
+    .detail-section p { max-width: 72ch; }
+    .detail-section p + .fig-hero,
+    .detail-section p + .image-placeholder,
+    .detail-section p + .spec-strip,
+    .detail-section p + .comparison-grid { margin-top: 24px; }
+
+    /* ── Figures & Placeholders ── */
+    .image-placeholder {
+      background: rgba(30, 30, 40, 0.4);
+      border: 1px dashed rgba(196, 168, 64, 0.35);
+      border-radius: 12px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 12px;
+      margin: 24px 0;
+      transition: border-color 220ms ease, background 220ms ease;
+    }
+    .image-placeholder:hover {
+      border-color: rgba(196, 168, 64, 0.6);
+      background: rgba(30, 30, 40, 0.6);
+    }
+    .image-placeholder.has-image {
+      border-style: solid;
+      border-color: var(--border);
+      padding: 0;
+      align-items: stretch;
+      justify-content: flex-start;
+      text-align: left;
+      overflow: hidden;
+      background: #101016;
+    }
+    .image-placeholder img.ph-photo,
+    .image-placeholder video.ph-photo {
+      display: none;
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: cover;
+    }
+    .image-placeholder.has-image img.ph-photo,
+    .image-placeholder.has-image video.ph-photo { display: block; }
+    .image-placeholder.has-image .placeholder-icon,
+    .image-placeholder.has-image .placeholder-desc { display: none; }
+    .image-placeholder .placeholder-title {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      font-weight: 600;
+    }
+    .image-placeholder.has-image .placeholder-title {
+      display: block;
+      padding: 12px 16px;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #14141c;
+      margin-top: auto;
+    }
+    .placeholder-icon { color: #C4A840; opacity: 0.8; }
+    .placeholder-desc {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+    .placeholder-desc code {
+      color: #C4A840;
+      font-family: var(--font-mono);
+      background: rgba(196, 168, 64, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .fig-hero { max-width: 900px; }
+
+    /* ── Spec chips ── */
+    .spec-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 10px;
+    }
+    .spec-chip {
+      flex: 1 1 150px;
+      background: rgba(196, 168, 64, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+    .spec-chip-value {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: #C4A840;
+      letter-spacing: -0.01em;
+    }
+    .spec-chip-label {
+      font-size: 10.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    /* ── Comparison Cards ── */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .comparison-card {
+      background: rgba(20, 20, 28, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+    }
+    .comparison-card--fisheye { border-left: 3px solid #C07840; }
+    .comparison-card--pinhole { border-left: 3px solid #5CA899; }
+    .comparison-card h4 {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .comparison-card p {
+      font-size: 0.92rem;
+      color: #aaa;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 1000px) {
+      .detail-grid { grid-template-columns: 1fr; }
+      .detail-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <nav class="page-nav">
+    <a href="index.html" class="page-nav-logo">Giri</a>
+    <a href="projects.html" class="page-nav-back">← projects</a>
+  </nav>
+
+  <div class="detail-wrap">
+
+    <a href="projects.html" class="detail-back">← all projects</a>
+
+    <header class="detail-header">
+      <div class="detail-meta">
+        <span class="project-status project-status--wip">ongoing</span>
+        <span class="project-num" style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">05 / 05</span>
+      </div>
+      <h1 class="detail-title">Traversability Estimation<br>with Go-Net</h1>
+      <p class="detail-tagline">
+        While standard RGB cameras handle object detection, semantic segmentation, and localization, autonomous warehouse navigation requires a physical understanding of the environment: deciding instantly if the zone directly in front is traversable or non-traversable. This project adapts the semi-supervised Go-Net architecture across severe camera modality gaps via custom data engineering.
+      </p>
+    </header>
+
+    <div class="detail-rule"></div>
+
+    <div class="detail-grid">
+
+      <div class="detail-content">
+
+        <!-- Section 1: Problem -->
+        <div class="detail-section">
+          <p class="detail-section-label">the problem: adding a physical brain to perception</p>
+          <p>
+            Standard computer vision models excel at recognizing predefined classes (e.g., bounding boxes for pallets, shelves, or workers). However, mobile warehouse robots face dynamic, unstructured floor conditions: temporary clutter, uneven surfaces, transitions between concrete and grating, or unexpected spills that do not fit neatly into standard object detection ontologies.
+          </p>
+          <p>
+            Our existing onboard RGB camera pipeline performed robust localization and semantic segmentation, but lacked the "physical brain" to reason about immediate floor traversability. Without real-time traversability classification of the direct forward corridor, path planning algorithms must rely on conservative assumptions that often stall the robot in safe, open zones.
+          </p>
+
+          <div class="spec-strip">
+            <div class="spec-chip">
+              <div class="spec-chip-value">Go-Net</div>
+              <div class="spec-chip-label">Stanford CVGL Architecture</div>
+            </div>
+            <div class="spec-chip">
+              <div class="spec-chip-value">ExAug-Nav</div>
+              <div class="spec-chip-label">Data Engineering & Reprojection</div>
+            </div>
+            <div class="spec-chip">
+              <div class="spec-chip-value">Semi-Supervised</div>
+              <div class="spec-chip-label">Unlabeled Warehouse Domain</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Go-Net & Thumbnail -->
+        <div class="detail-section">
+          <p class="detail-section-label">the approach: adapting stanford's go-net</p>
+          <p>
+            To solve this without manually annotating thousands of dense pixel-wise warehouse segmentation masks, we selected <strong>Go-Net</strong> (<a href="https://cvgl.stanford.edu/gonet/" target="_blank" style="color:#C4A840;">Stanford CVGL</a>), a semi-supervised deep learning model explicitly designed for robust traversability estimation from visual inputs.
+          </p>
+          <p>
+            This project is primarily an intensive <strong>Data Engineering and Model Training</strong> initiative. I took the foundational architecture described in the original Go-Net research paper and built an end-to-end training and curation pipeline to retrain and specialize the model for indoor warehouse environments.
+          </p>
+
+          <div class="image-placeholder has-image fig-hero">
+            <img src="img/Travrersability_thumbnail.png" class="ph-photo" alt="Go-Net: A Semi-Supervised Deep Learning Approach For Traversability Estimation" />
+            <span class="placeholder-title">Figure 1 · Go-Net framework formulation: utilizing semi-supervised learning to classify navigable terrain corridors from monocular visual inputs.</span>
+          </div>
+        </div>
+
+        <!-- Section 3: Modality Hurdle -->
+        <div class="detail-section">
+          <p class="detail-section-label">the modality hurdle: fisheye vs. pinhole cameras</p>
+          <p>
+            The single biggest technical hurdle encountered during model transfer is a severe <strong>modality mismatch</strong>. The massive pre-training datasets leveraged in the original Go-Net literature were captured using ultra-wide <em>fisheye cameras</em> with strong radial distortion and unique pixel density distributions across the lower field-of-view.
+          </p>
+
+          <div class="comparison-grid">
+            <div class="comparison-card comparison-card--fisheye">
+              <h4>Original Domain: Fisheye Modality</h4>
+              <p>
+                Non-linear radial distortion curves where peripheral ground zones are compressed into curved pixel coordinates. Training directly on this dataset biases spatial attention filters toward spherical optical geometry.
+              </p>
+            </div>
+            <div class="comparison-card comparison-card--pinhole">
+              <h4>Target Domain: Pinhole RGB Camera</h4>
+              <p>
+                Our warehouse mobile robot uses standard rectilinear pinhole lenses. When raw fisheye weights or uncorrected datasets are evaluated on rectilinear inputs, the depth-to-pixel relationship breaks, causing false non-traversable alarms directly ahead of the wheels.
+              </p>
+            </div>
+          </div>
+
+          <p style="margin-top:20px;">
+            Because collecting a brand-new, million-frame warehouse dataset from scratch is impractical, the challenge lies in leveraging the massive existing fisheye dataset while forcing the network to generalize accurately to rectilinear pinhole cameras.
+          </p>
+        </div>
+
+        <!-- Section 4: Data Engineering & ExAug-Nav -->
+        <div class="detail-section">
+          <p class="detail-section-label">cross-modal data engineering & exaug-nav</p>
+          <p>
+            To make the model generalizable across both camera modalities, I am building a custom data engineering pipeline that applies geometric domain adaptation and perspective warping:
+          </p>
+          <p>
+            We are implementing techniques inspired by <strong>ExAug-Nav</strong> (<a href="https://sites.google.com/view/exaug-nav" target="_blank" style="color:#C4A840;">Experience-driven Augmentation for Navigation</a>). By computing camera intrinsic transformations, we synthetically warp rectilinear warehouse crops into pseudo-fisheye projections and vice-versa during training. Furthermore, ExAug-Nav style experience augmentation injects synthetic obstacle textures, lighting shifts, and viewpoint perturbations into traversable ground zones, forcing the feature extractor to rely on semantic floor structure rather than optical lens artifacts.
+          </p>
+        </div>
+
+        <!-- Section 5: Result GIF Placeholder -->
+        <div class="detail-section">
+          <p class="detail-section-label">live inference demonstration</p>
+          <p>
+            Once cross-modal training converges, the resulting model runs in real-time on our robot's edge GPU, overlaying binary traversability probability masks directly onto live RGB camera streams at high framerates:
+          </p>
+
+          <!-- Result GIF Placeholder box -->
+          <div class="image-placeholder fig-hero">
+            <div class="placeholder-icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+                <polygon points="10,8 15,10 10,12"></polygon>
+              </svg>
+            </div>
+            <span class="placeholder-title">Result Demonstration GIF (Placeholder)</span>
+            <span class="placeholder-desc">
+              Drop your live traversability inference animation into <code>img/traversability_demo.gif</code> and uncomment the image tag below to display real-time green/red corridor segmentation overlaying the warehouse floor.
+            </span>
+            <!-- <img src="img/traversability_demo.gif" class="ph-photo" alt="Real-time warehouse traversability segmentation mask overlay" onload="this.parentElement.classList.add('has-image')" /> -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar -->
+      <aside class="detail-sidebar">
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">project info</span>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Status</span>
+            <span class="detail-stat-value" style="color:#C4A840;">Ongoing · Model Training</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Domain</span>
+            <span class="detail-stat-value">Perception & Computer Vision</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">System</span>
+            <span class="detail-stat-value">Warehouse Robot (RGB Pinhole)</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Key hurdle</span>
+            <span class="detail-stat-value">Fisheye to Pinhole Transfer</span>
+          </div>
+        </div>
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">skills & tech stack</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <span class="tag tag--amber">Python</span>
+            <span class="tag tag--purple">PyTorch</span>
+            <span class="tag tag--green">Go-Net</span>
+            <span class="tag tag--amber">ExAug-Nav</span>
+            <span class="tag tag--blue">Data Engineering</span>
+            <span class="tag tag--purple">Computer Vision</span>
+            <span class="tag tag--green">OpenCV</span>
+            <span class="tag tag--blue">Semi-Supervised Learning</span>
+          </div>
+        </div>
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">research links</span>
+          <a href="https://cvgl.stanford.edu/gonet/" target="_blank" rel="noopener noreferrer" class="detail-sidebar-link">Go-Net Paper & Code <span>↗</span></a>
+          <a href="https://sites.google.com/view/exaug-nav" target="_blank" rel="noopener noreferrer" class="detail-sidebar-link">ExAug-Nav Project Page <span>↗</span></a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <script src="projects.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

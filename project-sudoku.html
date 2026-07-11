@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku Solver · Giri</title>
+  <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="projects.css" />
+</head>
+<body class="page-body">
+
+  <nav class="page-nav">
+    <a href="index.html" class="page-nav-logo">Giri</a>
+    <a href="projects.html" class="page-nav-back">← projects</a>
+  </nav>
+
+  <div class="detail-wrap">
+
+    <a href="projects.html" class="detail-back">← all projects</a>
+
+    <header class="detail-header">
+      <div class="detail-meta">
+        <span class="project-status project-status--done">completed</span>
+        <span class="project-num" style="font-family:var(--font-mono);font-size:10px;color:var(--muted);">02 / 03</span>
+      </div>
+      <h1 class="detail-title">Sudoku Solver with<br>Real-Image Dataset</h1>
+      <p class="detail-tagline">
+        MNIST is a clean benchmark. Real Sudoku puzzles are not.
+        The interesting problem is building a recognizer that works on what people actually photograph.
+      </p>
+    </header>
+
+    <div class="detail-rule"></div>
+
+    <div class="detail-grid">
+
+      <div class="detail-content">
+
+        <div class="detail-section">
+          <p class="detail-section-label">why not MNIST</p>
+          <p>
+            Most "Sudoku solver" projects on GitHub use a digit classifier trained on MNIST — a dataset of
+            handwritten digits photographed under controlled conditions. Real Sudoku grids use printed fonts,
+            come from phone cameras at varying angles, have bleed-through from the page behind, and often
+            have partial occlusions from fingers or shadows.
+          </p>
+          <p>
+            A model trained on MNIST fails badly on real Sudoku images. The gap isn't a generalization failure
+            in the traditional sense — it's a domain mismatch. The solution is obvious once you see it:
+            train on the actual domain.
+          </p>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">dataset & training</p>
+          <p>
+            Built a dataset of digit crops extracted from real photographed Sudoku puzzles — diverse fonts,
+            print qualities, and capture conditions. Combined with augmentation (perspective warp, noise,
+            brightness jitter) to cover edge cases the raw collection missed.
+          </p>
+          <p>
+            The classifier is a compact CNN trained in PyTorch. The architecture is deliberately small —
+            the digit recognition problem doesn't need depth once the domain shift is handled; it needs
+            the right data.
+          </p>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">pipeline</p>
+          <p>
+            The full pipeline: photograph → grid detection (OpenCV contour + perspective transform) →
+            cell segmentation → digit classification → constraint propagation solver → overlay solution
+            back onto the original image.
+          </p>
+          <p>
+            The solver itself uses backtracking with constraint propagation — fast enough for any valid
+            puzzle, and deterministic. The interesting engineering is entirely in the vision front-end.
+          </p>
+        </div>
+
+      </div>
+
+      <aside class="detail-sidebar">
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">project info</span>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Status</span>
+            <span class="detail-stat-value" style="color:#5CA899;">Completed</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Domain</span>
+            <span class="detail-stat-value">Computer Vision</span>
+          </div>
+          <div class="detail-stat">
+            <span class="detail-stat-label">Key insight</span>
+            <span class="detail-stat-value">Real-domain training data</span>
+          </div>
+        </div>
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">tech stack</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <span class="tag tag--amber">Python</span>
+            <span class="tag tag--purple">PyTorch</span>
+            <span class="tag tag--blue">OpenCV</span>
+            <span class="tag tag--green">Computer Vision</span>
+            <span class="tag tag--amber">NumPy</span>
+          </div>
+        </div>
+
+        <div class="detail-sidebar-card">
+          <span class="detail-sidebar-label">links</span>
+          <a href="#" class="detail-sidebar-link">GitHub repo <span>↗</span></a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <script src="projects.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

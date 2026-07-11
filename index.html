@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giri · Robotics &amp; Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="layout">
+
+    <!-- ── INTRO CELL ── -->
+    <div class="intro-cell">
+      <div class="intro-inner">
+        <span class="intro-label">Robotics &amp; Software Engineer</span>
+        <h1 class="intro-name">Giri</h1>
+        <p class="intro-lede">
+          I build autonomy systems across perception, controls, motion planning, and the hardware they run on.
+        </p>
+        <div class="intro-actions" aria-label="Primary links">
+          <a href="projects.html" class="intro-action intro-action--primary">View projects</a>
+          <a href="contact.html" class="intro-action">Contact</a>
+        </div>
+      </div>
+      <div class="intro-lower">
+        <div class="terminal-console">
+          <div class="terminal-header">
+            <span>System Status</span>
+            <span>Loc: Bengaluru</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">&gt;</span>
+            <span class="terminal-key">Status:</span>
+            <span class="terminal-val terminal-status">ACTIVE // OPEN TO WORK</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">&gt;</span>
+            <span class="terminal-key">Focus:</span>
+            <span class="terminal-val">ROS2, CV, controls</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">&gt;</span>
+            <span class="terminal-key">Current:</span>
+            <span class="terminal-val">Autonomy Intern @ ATI</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">&gt;</span>
+            <span class="terminal-key">Academia:</span>
+            <span class="terminal-val">IIITDM (9.07 CGPA)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROJECTS ── large -->
+    <div class="card card--projects">
+      <div class="card-top">
+        <a href="projects.html" class="card-link" style="display: flex; justify-content: space-between; width: 100%; align-items: center; color: inherit; text-decoration: none;">
+          <span class="card-label">Projects</span>
+          <span class="card-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <!-- One-at-a-time swipe carousel -->
+      <div class="proj-carousel" id="proj-carousel">
+
+        <!-- Slide 01 · 7DOF Robot (full-bleed photo hero) -->
+        <div class="proj-slide proj-slide--steel proj-slide--photo" data-href="project-xarm7.html" tabindex="0" role="link" aria-label="View project: Targeted Striking Manipulation">
+          <div class="proj-slide-photo-bg">
+
+            <img src="img/xarm7.webp" class="proj-slide-photo-img" alt="Multi-functional LaMSA gripper performing targeted striking" loading="lazy"
+                 onerror="this.closest('.proj-slide').classList.remove('proj-slide--photo'); this.parentElement.remove();">
+
+          </div>
+          <div class="proj-slide-info">
+            <span class="proj-slide-num" aria-hidden="true">01</span>
+            <div class="proj-slide-header">
+              <span class="proj-badge proj-badge--done">completed</span>
+            </div>
+            <h3 class="proj-slide-title">Targeted Striking<br>Manipulation</h3>
+            <p class="proj-slide-desc">7DOF XArm hitting targets with precise contact velocity and angle — integrated system design, learning-based controls, and system identification.</p>
+            <div class="proj-slide-tags">
+              <span class="tag tag--blue">Design</span>
+              <span class="tag tag--purple">Learning Based Controls</span>
+              <span class="tag tag--green">SysID</span>
+            </div>
+            <span class="proj-slide-cta">View project →</span>
+          </div>
+        </div>
+
+        <!-- Slide 02 · Sudoku (full-bleed photo hero) -->
+        <div class="proj-slide proj-slide--copper proj-slide--photo proj-slide--photo-sudoku" data-href="project-sudoku.html" tabindex="0" role="link" aria-label="View project: Sudoku Solver on Real Images">
+          <div class="proj-slide-photo-bg">
+            <img src="img/sudoku-real.webp" class="proj-slide-photo-img proj-slide-photo-img--sudoku" alt="Real Sudoku puzzle printed on newspaper for OCR detection" loading="lazy"
+                 onerror="this.closest('.proj-slide').classList.remove('proj-slide--photo','proj-slide--photo-sudoku'); this.parentElement.remove();">
+          </div>
+          <div class="proj-slide-info">
+            <span class="proj-slide-num" aria-hidden="true">02</span>
+            <div class="proj-slide-header">
+              <span class="proj-badge proj-badge--done">completed</span>
+            </div>
+            <h3 class="proj-slide-title">Sudoku Solver —<br>Real Images</h3>
+            <p class="proj-slide-desc">Digit recognizer trained on real photographed Sudoku puzzles, not MNIST. Handles varied fonts, angles, print quality.</p>
+            <div class="proj-slide-tags">
+              <span class="tag tag--amber">Python</span>
+              <span class="tag tag--purple">PyTorch</span>
+              <span class="tag tag--blue">OpenCV</span>
+            </div>
+            <span class="proj-slide-cta">View project →</span>
+          </div>
+        </div>
+
+        <!-- Slide 03 · AMR Tracker (full-bleed diagram photo) -->
+        <div class="proj-slide proj-slide--sage proj-slide--photo proj-slide--photo-amr" data-href="project-amr.html" tabindex="0" role="link" aria-label="View project: Trolley-Augmented AMR Tracker">
+          <div class="proj-slide-photo-bg">
+            <img src="img/amr-diagram.webp" class="proj-slide-photo-img proj-slide-photo-img--amr" alt="AMR trajectory tracking residual dynamics diagram" loading="lazy"
+                 onerror="this.closest('.proj-slide').classList.remove('proj-slide--photo','proj-slide--photo-amr'); this.parentElement.remove();">
+          </div>
+          <div class="proj-slide-info">
+            <span class="proj-slide-num" aria-hidden="true">03</span>
+            <div class="proj-slide-header">
+              <span class="proj-badge--wip">ongoing</span>
+            </div>
+            <h3 class="proj-slide-title">Trolley-Augmented<br>AMR Tracker</h3>
+            <p class="proj-slide-desc">Learning the residual dynamics of an AMR towing a trolley — without modeling the trolley explicitly. GPR + MLP.</p>
+            <div class="proj-slide-tags">
+              <span class="tag tag--green">ROS2</span>
+              <span class="tag tag--purple">GPR</span>
+              <span class="tag tag--amber">Python</span>
+            </div>
+            <span class="proj-slide-cta">View project →</span>
+          </div>
+        </div>
+
+        <!-- Slide 04 · Reverse Parking Trolley -->
+        <div class="proj-slide proj-slide--indigo proj-slide--photo proj-slide--photo-trolley" data-href="project-reverse-parking.html" tabindex="0" role="link" aria-label="View project: Articulated Reverse Parking with NMPC">
+          <div class="proj-slide-photo-bg">
+            <img src="img/Reverse_Trolley.jpg" class="proj-slide-photo-img proj-slide-photo-img--trolley" alt="Articulated tractor and trolley kinematics path tracking" loading="lazy"
+                 onerror="this.closest('.proj-slide').classList.remove('proj-slide--photo','proj-slide--photo-trolley'); this.parentElement.remove();">
+          </div>
+          <div class="proj-slide-info">
+            <span class="proj-slide-num" aria-hidden="true">04</span>
+            <div class="proj-slide-header">
+              <span class="proj-badge proj-badge--done">completed</span>
+            </div>
+            <h3 class="proj-slide-title">Articulated Reverse<br>Parking (NMPC)</h3>
+            <p class="proj-slide-desc">Controlling an unstable articulated tractor-trolley system in reverse using Acados & CasADi with move blocking, warm starts, and soft jackknife barriers.</p>
+            <div class="proj-slide-tags">
+              <span class="tag tag--purple">Acados / CasADi</span>
+              <span class="tag tag--blue">NMPC</span>
+              <span class="tag tag--green">System Integration</span>
+            </div>
+            <span class="proj-slide-cta">View project →</span>
+          </div>
+        </div>
+
+        <!-- Slide 05 · Traversability Estimation -->
+        <div class="proj-slide proj-slide--amber proj-slide--photo proj-slide--photo-traversability" data-href="project-traversability.html" tabindex="0" role="link" aria-label="View project: Traversability Estimation with Go-Net">
+          <div class="proj-slide-photo-bg">
+            <img src="img/Travrersability_thumbnail.png" class="proj-slide-photo-img proj-slide-photo-img--traversability" alt="Go-Net Traversability Estimation for Warehouse Navigation" loading="lazy"
+                 onerror="this.closest('.proj-slide').classList.remove('proj-slide--photo','proj-slide--photo-traversability'); this.parentElement.remove();">
+          </div>
+          <div class="proj-slide-info">
+            <span class="proj-slide-num" aria-hidden="true">05</span>
+            <div class="proj-slide-header">
+              <span class="proj-badge--wip">ongoing</span>
+            </div>
+            <h3 class="proj-slide-title">Traversability<br>Estimation</h3>
+            <p class="proj-slide-desc">Adding a physical perception brain using Go-Net. Overcoming severe fisheye-to-pinhole camera modality gaps via ExAug-Nav augmentation.</p>
+            <div class="proj-slide-tags">
+              <span class="tag tag--amber">Python</span>
+              <span class="tag tag--green">Go-Net</span>
+              <span class="tag tag--purple">Computer Vision</span>
+            </div>
+            <span class="proj-slide-cta">View project →</span>
+          </div>
+        </div>
+
+        <!-- Navigation dots -->
+        <div class="proj-dots">
+          <button class="proj-dot" data-idx="0" aria-label="Project 1"></button>
+          <button class="proj-dot" data-idx="1" aria-label="Project 2"></button>
+          <button class="proj-dot" data-idx="2" aria-label="Project 3"></button>
+          <button class="proj-dot" data-idx="3" aria-label="Project 4"></button>
+          <button class="proj-dot" data-idx="4" aria-label="Project 5"></button>
+        </div>
+
+      </div>
+
+      <a href="projects.html" class="card-link card-bottom" style="margin-top:10px; color: inherit; text-decoration: none; width: 100%;">
+        <p class="card-desc">Five selected builds spanning manipulation, perception, controls, and AMR state estimation.</p>
+        <span class="card-count">05 projects</span>
+      </a>
+    </div>
+
+    <!-- ── ABOUT ── wide -->
+    <a href="about.html" class="card card--about">
+      <div class="card-top">
+        <span class="card-label">About me</span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </div>
+      <h2 class="card-title">rigorous.<br>reflective.<br>builder.</h2>
+      <div class="about-preview">
+        <p class="about-preview-line">Hardware instincts, software leverage, robotics as the meeting point.</p>
+        <span class="about-preview-note">Smart Manufacturing · IIITDM Chennai</span>
+      </div>
+    </a>
+
+    <!-- ── WORK EX ── tall right column -->
+    <a href="workex.html" class="card card--work">
+      <div class="card-top">
+        <span class="card-label">Work &amp; Education</span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </div>
+      <h2 class="card-title">experience.</h2>
+
+      <div class="work-mini">
+        <span class="wm-label">work</span>
+
+        <div class="wm-item wm-item--now">
+          <span class="wm-node wm-node--logo">
+            <img src="img/Ati_logo_small.jpg" alt="ATI Robotics" onerror="this.remove()">
+          </span>
+          <div class="wm-text">
+            <span class="wm-role">Autonomy Intern</span>
+            <span class="wm-co">ATI Robotics</span>
+          </div>
+          <span class="wm-date">now</span>
+        </div>
+        <div class="wm-item">
+          <span class="wm-node wm-node--logo">
+            <img src="img/iiitdm_logo.png" alt="IIITDM" onerror="this.remove()">
+          </span>
+          <div class="wm-text">
+            <span class="wm-role">Research Student</span>
+            <span class="wm-co">ARM Lab · IIITDM</span>
+          </div>
+          <span class="wm-date">’26</span>
+        </div>
+        <div class="wm-item">
+          <span class="wm-node wm-node--logo">
+            <img src="img/Ati_logo_small.jpg" alt="ATI Robotics" onerror="this.remove()">
+          </span>
+          <div class="wm-text">
+            <span class="wm-role">Mechanical Intern</span>
+            <span class="wm-co">ATI Robotics</span>
+          </div>
+          <span class="wm-date">’25</span>
+        </div>
+        <div class="wm-item">
+          <span class="wm-node wm-node--logo">
+            <img src="img/sae_logo.jpg" alt="SAE" onerror="this.remove()">
+          </span>
+          <div class="wm-text">
+            <span class="wm-role">Rollcage Lead</span>
+            <span class="wm-co">Revolt Racers · SAE</span>
+          </div>
+          <span class="wm-date">’25</span>
+        </div>
+        <div class="wm-item">
+          <span class="wm-node"></span>
+          <div class="wm-text">
+            <span class="wm-role">Backend Dev</span>
+            <span class="wm-co">Value Vertex</span>
+          </div>
+          <span class="wm-date">’24</span>
+        </div>
+
+        <span class="wm-label wm-label--edu">education</span>
+
+        <div class="wm-item">
+          <span class="wm-node wm-node--logo">
+            <img src="img/iiitdm_logo.png" alt="IIITDM" onerror="this.remove()">
+          </span>
+          <div class="wm-text">
+            <span class="wm-role">B.Tech, Smart Mfg.</span>
+            <span class="wm-co">IIITDM · CGPA 9.07</span>
+          </div>
+          <span class="wm-date">’26</span>
+        </div>
+        <div class="wm-item">
+          <span class="wm-node wm-node--edu"></span>
+          <div class="wm-text">
+            <span class="wm-role">Higher Secondary</span>
+            <span class="wm-co">Amrita · 94.2%</span>
+          </div>
+          <span class="wm-date">’22</span>
+        </div>
+      </div>
+      <div class="work-signal">
+        <span>recruiter scan</span>
+        <strong>industry + research + build teams</strong>
+      </div>
+    </a>
+
+    <!-- ── EXCITING ── small -->
+    <a href="exciting.html" class="card card--exciting">
+      <div class="card-top">
+        <span class="card-label">Currently excited by</span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </div>
+      <h2 class="card-title">world models &amp;<br>embodied AI.</h2>
+      <div class="card-tags card-tags--sm">
+        <span class="tag tag--yellow">Embodied AI</span>
+        <span class="tag tag--yellow">World models</span>
+      </div>
+      <p class="card-desc">Questions I am tracking beyond the current project list.</p>
+    </a>
+
+    <!-- ── READS ── medium -->
+    <a href="reads.html" class="card card--reads">
+      <div class="card-top">
+        <span class="card-label">Good reads</span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </div>
+      <h2 class="card-title">papers &amp;<br>books.</h2>
+      <p class="card-desc">Books, papers, and articles shaping my engineering judgment.</p>
+    </a>
+
+    <!-- ── CONTACT ── small -->
+    <a href="contact.html" class="card card--contact">
+      <div class="card-top">
+        <span class="card-label">Contact</span>
+        <span class="card-arrow" aria-hidden="true">↗</span>
+      </div>
+      <h2 class="card-title">let's talk.</h2>
+      <p class="card-desc">For robotics, autonomy, and software roles.</p>
+    </a>
+
+  </div>
+
+  <!-- ── OVERLAY PANEL ── -->
+  <div class="overlay" id="overlay" aria-hidden="true" role="dialog" aria-label="Content panel">
+    <div class="overlay-panel">
+      <button class="overlay-close" id="overlay-close" aria-label="Close panel">✕</button>
+      <iframe class="overlay-frame" id="overlay-frame" title="Page content"></iframe>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>

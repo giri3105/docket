@@ -1,0 +1,7 @@
+.agents/
+.claude/
+.codex/
+.gemini/
+.impeccable/
+*.log
+.DS_Store

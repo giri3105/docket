@@ -1,0 +1,149 @@
+/* =====================================================
+   GOOD READS — a citation ledger in the instrument voice
+   ===================================================== */
+
+.reads-content {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 64px 40px 120px;
+}
+
+/* ── Header ── */
+.reads-header {
+  margin-bottom: clamp(48px, 6vw, 72px);
+  opacity: 0;
+  transform: translateY(24px);
+  animation: readsFadeUp 560ms cubic-bezier(0.22, 1, 0.36, 1) 80ms both;
+}
+
+.reads-subtitle {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 52ch;
+  margin-top: 16px;
+}
+
+/* ── Topic group: rail left, entries right ── */
+.reads-group {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+  padding: clamp(36px, 5vw, 52px) 0;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(18px);
+  animation: readsFadeUp 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.reads-group:nth-of-type(1) { animation-delay: 180ms; }
+.reads-group:nth-of-type(2) { animation-delay: 260ms; }
+.reads-group:nth-of-type(3) { animation-delay: 320ms; }
+.reads-group:nth-of-type(4) { animation-delay: 380ms; }
+.reads-group:nth-of-type(5) { animation-delay: 440ms; }
+
+.reads-topic { position: sticky; top: 24px; }
+
+.reads-topic h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 10px;
+  text-wrap: balance;
+}
+
+.reads-topic p {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── Entry rows ── */
+.reads-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.read-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 16px 12px;
+  margin: 0 -12px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+.read-row + .read-row { border-top: 1px solid var(--border); }
+.read-row:hover { background: var(--card); }
+
+.read-main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.read-title {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.read-authors {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Reference badge: mono, colored by source kind */
+.read-ref {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.read-ref::after {
+  content: ' ↗';
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.read-row:hover .read-ref::after { opacity: 1; }
+
+.read-ref--paper { color: var(--steel); }
+.read-ref--book  { color: var(--copper); }
+.read-ref--blog  { color: var(--sage); }
+
+/* ── Motion ── */
+@keyframes readsFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reads-header, .reads-group {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .reads-content { padding: 40px 24px 90px; }
+  .reads-group {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .reads-topic { position: static; }
+  .read-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

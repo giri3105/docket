@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects · Giri</title>
+  <script>if(window.self!==window.top)document.documentElement.classList.add('embedded');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="projects.css" />
+</head>
+<body class="page-body">
+
+  <nav class="page-nav">
+    <a href="index.html" class="page-nav-logo">Giri</a>
+    <a href="index.html" class="page-nav-back">← back</a>
+  </nav>
+
+  <div class="projects-wrap">
+
+    <!-- ── Header ── -->
+    <header class="projects-header">
+      <p class="page-eyebrow">02 / 06</p>
+      <h1 class="projects-title">Projects.</h1>
+      <p class="projects-subtitle">Robots I've built, systems I've designed, code I'm proud of.</p>
+    </header>
+
+    <div class="projects-rule"></div>
+
+    <!-- ── Featured: 7DOF Robot ── -->
+    <a href="project-xarm7.html" class="project-featured">
+
+      <div class="project-featured-body">
+        <div>
+          <div class="project-featured-meta">
+            <span class="project-status project-status--done">completed</span>
+            <span class="project-num">01</span>
+          </div>
+          <h2 class="project-featured-title">Targeted Striking Manipulation</h2>
+          <p class="project-featured-desc">
+            Designed a multi-functional gripper leveraging Latch-Mediated Spring Actuation (LaMSA) for high-impact targeted striking, integrated with custom system identification and RMA-based online control adaptation.
+          </p>
+          <div class="project-tags">
+            <span class="tag tag--blue">Design</span>
+            <span class="tag tag--purple">Learning Based Controls</span>
+            <span class="tag tag--green">SysID</span>
+            <span class="tag tag--blue">MuJoCo</span>
+            <span class="tag tag--purple">PyTorch</span>
+          </div>
+        </div>
+        <span class="project-cta">View project →</span>
+      </div>
+      <div class="project-featured-thumb">
+        <img src="img/xarm7.webp" alt="7DOF robot striking demo" loading="lazy" />
+        <div class="thumb-play">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <span class="thumb-label">watch demo</span>
+        </div>
+      </div>
+
+    </a>
+
+    <!-- ── Projects grid ── -->
+    <div class="projects-grid">
+
+      <a href="project-sudoku.html" class="project-card project-card--done">
+        <div class="project-card-meta">
+          <span class="project-status project-status--done">completed</span>
+          <span class="project-num">02</span>
+        </div>
+        <h3 class="project-card-title">Sudoku Solver with Real-Image Dataset</h3>
+        <p class="project-card-desc">
+          End-to-end Sudoku solver using a digit recognizer trained on real printed Sudoku images
+          — not MNIST. Handles varied fonts, print quality, and perspective distortion.
+        </p>
+        <div class="project-tags" style="margin-bottom: 20px;">
+          <span class="tag tag--amber">Python</span>
+          <span class="tag tag--purple">PyTorch</span>
+          <span class="tag tag--blue">OpenCV</span>
+          <span class="tag tag--green">Computer Vision</span>
+        </div>
+        <div class="project-card-footer">
+          <div></div>
+          <span class="project-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="project-amr.html" class="project-card project-card--wip">
+        <div class="project-card-meta">
+          <span class="project-status project-status--wip">ongoing</span>
+          <span class="project-num">03</span>
+        </div>
+        <h3 class="project-card-title">Trolley-Augmented AMR Tracker</h3>
+        <p class="project-card-desc">
+          Modeling a pose tracker for an AMR towing a trolley — without explicitly modeling the trolley's
+          dynamics. Augmenting the base estimator with a learned residual (GPR / MLP).
+        </p>
+        <div class="project-tags" style="margin-bottom: 20px;">
+          <span class="tag tag--green">ROS2</span>
+          <span class="tag tag--amber">Python</span>
+          <span class="tag tag--purple">GPR</span>
+          <span class="tag tag--blue">State Estimation</span>
+        </div>
+        <div class="project-card-footer">
+          <div></div>
+          <span class="project-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="project-reverse-parking.html" class="project-card project-card--done">
+        <div class="project-card-meta">
+          <span class="project-status project-status--done">completed</span>
+          <span class="project-num">04</span>
+        </div>
+        <h3 class="project-card-title">Articulated Reverse Parking with NMPC</h3>
+        <p class="project-card-desc">
+          Augmenting Frenet-frame Model Predictive Control with trailer kinematics, move blocking, and soft jackknife barriers to autonomously reverse an articulated tractor-trolley system using CasADi and Acados.
+        </p>
+        <div class="project-tags" style="margin-bottom: 20px;">
+          <span class="tag tag--amber">Python</span>
+          <span class="tag tag--purple">CasADi / Acados</span>
+          <span class="tag tag--blue">NMPC</span>
+          <span class="tag tag--green">System Integration</span>
+        </div>
+        <div class="project-card-footer">
+          <div></div>
+          <span class="project-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="project-traversability.html" class="project-card project-card--wip">
+        <div class="project-card-meta">
+          <span class="project-status project-status--wip">ongoing</span>
+          <span class="project-num">05</span>
+        </div>
+        <h3 class="project-card-title">Traversability Estimation with Go-Net</h3>
+        <p class="project-card-desc">
+          Classifying navigable floor corridors for warehouse robots using Go-Net. Overcoming severe fisheye-to-pinhole camera modality gaps via custom data engineering and ExAug-Nav experience augmentation.
+        </p>
+        <div class="project-tags" style="margin-bottom: 20px;">
+          <span class="tag tag--amber">Python</span>
+          <span class="tag tag--purple">PyTorch</span>
+          <span class="tag tag--green">Go-Net</span>
+          <span class="tag tag--blue">Data Engineering</span>
+        </div>
+        <div class="project-card-footer">
+          <div></div>
+          <span class="project-card-arrow">↗</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- ── Ideas / Backlog ── -->
+    <p class="projects-ideas-header">on the backlog</p>
+    <div class="ideas-list">
+      <div class="idea-row"><span class="idea-dot"></span>Sim-to-real transfer benchmark for contact-rich manipulation</div>
+      <div class="idea-row"><span class="idea-dot"></span>Autonomous inspection drone with onboard semantic mapping</div>
+      <div class="idea-row"><span class="idea-dot"></span>LLM-driven task planner for household robot</div>
+    </div>
+
+  </div>
+
+  <script src="projects.js"></script>
+<!-- impeccable-live-start -->
+<script src="http://localhost:8400/live.js"></script>
+<!-- impeccable-live-end -->
+</body>
+</html>
